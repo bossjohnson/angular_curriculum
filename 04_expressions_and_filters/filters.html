@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Filters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+</head>
+
+<body>
+
+    <div style="border: 1px solid black; border-radius: 8px; padding: 5px; display: inline-block; text-align: center;">
+        <h3>Currency filter:</h3>
+        <span>{{ 3.14159265359 | currency : '€' }}</span>
+    </div>
+
+    <br>
+
+    <div style="border: 1px solid black; border-radius: 8px; padding: 5px; display: inline-block;">
+        <h3>Uppercase and lowercase filters:</h3>
+        <label for="saySomething">Please say something:</label>
+        <input id="saySomething" type="text" ng-model="saySomething">
+        <p>Yelling: <span style="font-weight: bold;">{{ saySomething | uppercase }}</span></p>
+        <p>Whispering: <span style="font-style: italic;">{{ saySomething | lowercase }}</span></p>
+    </div>
+
+    <br>
+
+    <div style="border: 1px solid black; border-radius: 8px; padding: 5px; display: inline-block;">
+        <h3>Number filter</h3>
+        <label for="digits">How many digits of pi do you want?</label>
+        <select name="digits" id="digits" ng-model="digits">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+        <p>Here you go! The first {{ digits }}
+            <ng-pluralize count="digits" when="{'one': 'digit', 'other': 'digits'}"></ng-pluralize> of pi!
+        </p>
+        <p style="text-align: center;">{{ 3.14159265359 | number: digits }}</p>
+    </div>
+
+    <br>
+
+    <div style="border: 1px solid black; border-radius: 8px; padding: 5px; display: inline-block;">
+        <h3>Tip Calculator</h3>
+
+        <label for="price">How much did your meal cost?</label>
+        <input id="price" type="text" ng-model="price">
+
+        <br>
+
+        <label for="tip">How much do you want to tip?</label>
+        <select name="tip" id="tip" ng-model="tip">
+            <option value=".10">10%</option>
+            <option value=".15">15%</option>
+            <option value=".20">20%</option>
+        </select>
+
+        <h4>Subtotal: {{ price | currency }}</h4>
+        <h4>Tip: {{ price * tip | currency }}</h4>
+    </div>
+
+    <br>
+
+    <div style="border: 1px solid black; border-radius: 8px; padding: 5px; display: inline-block;">
+        <h3>This</h3>
+        <div>{{ this }}</div>
+    </div>
+
+    <br>
+
+    <div style="border: 1px solid black; border-radius: 8px; padding: 5px; display: inline-block;">
+        <h3>Mad Libs</h3>
+        <hr>
+        <h4>Please fill out the following!</h4>
+        <hr>
+
+        <label for="boysName">Boy's Name</label>
+        <br>
+        <input id="boysName" type="text" ng-model="boysName" placeholder="Enter a boy's name …">
+        <br>
+
+        <label for="adjective">Adjective</label>
+        <br>
+        <input id="adjective" type="text" ng-model="adjective" placeholder="Enter an adjective …">
+        <br>
+
+        <label for="pluralNoun1">Plural Noun</label>
+        <br>
+        <input id="pluralNoun1" type="text" ng-model="pluralNoun1" placeholder="Enter a plural noun …">
+        <br>
+
+        <label for="pluralNoun2">Plural Noun</label>
+        <br>
+        <input id="pluralNoun2" type="text" ng-model="pluralNoun2" placeholder="Enter a plural noun …">
+        <br>
+
+        <label for="insect">An insect, plural</label>
+        <br>
+        <input id="insect" type="text" ng-model="insect" placeholder="Enter an insect, plural …">
+        <br>
+
+        <label for="pluralNoun3">Plural Noun</label>
+        <br>
+        <input id="pluralNoun3" type="text" ng-model="pluralNoun3" placeholder="Enter a plural noun …">
+        <br>
+
+        <label for="verb">A verb ending in "s"</label>
+        <br>
+        <input id="verb" type="text" ng-model="verb" placeholder="Enter a verb ending in &quot;s&quot;">
+        <br>
+        <br>
+
+        <h4>Mad to the libs yo</h4>
+        <hr>
+        <h3>
+          I'm in love with <span>{{ boysName }}</span>. He's so <span>{{ adjective }}</span>!
+          He has big flat <span>{{ pluralNoun1 }}</span>, and when our <span>{{ pluralNoun2 }}</span>
+          meet, I get <span>{{ insect }}</span> in my stomach. I've fallen for
+          him like a ton of <span>{{ pluralNoun3 }}</span>, and he <span>{{ verb }}</span>
+          for me, too. But I think he's got another girlfriend. What should I do?
+        </h3>
+
+    </div>
+
+</body>
+
+</html>
