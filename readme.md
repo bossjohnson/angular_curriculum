@@ -36,6 +36,8 @@ ng-model is an attribute which binds the data in an input to a name in the data 
 
 #### Find a way to set the initial value of "name" as "BoJack" (without writing a controller).
 
+This can be achieved using ng-init.  Specifically, adding the property ng-init="name = 'BoJack'" to the input tag will accomplish this.
+
 
 
 #### What are those {{ }} expressions? Are they Handlebars?
