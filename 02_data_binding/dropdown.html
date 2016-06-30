@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+    <select name="pets" id="pets" ng-model="pets">
+        <option selected>dogs</option>
+        <option>cats</option>
+        <option>dogs and cats</option>
+        <option>neither</option>
+    </select>
+
+    <h3>I love {{ pets }} <span class="fa fa-heart"></span></h3>
+</body>
+
+</html>
