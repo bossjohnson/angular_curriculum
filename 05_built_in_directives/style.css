@@ -1,0 +1,21 @@
+.highlight {
+    background-color: yellow;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+section {
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 1%;
+    padding: 1%;
+}
+#cameraShop img {
+    max-width: 100px;
+}
+.onSale {
+    color: #FFA600;
+}
