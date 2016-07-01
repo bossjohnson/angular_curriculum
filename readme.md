@@ -88,3 +88,19 @@ Heck yeah!  Just chain 'em together like so:
 
 
 #### How does ng-repeat handle duplicate data?
+
+
+
+####What is $scope?
+
+
+
+####What are Angular modules? What's the syntax for defining a module?
+
+
+
+####Why do we pass in $scope as an argument to controller functions?
+
+
+
+####In Express, what are Angular controllers most analogous to?

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MadLibs">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+</head>
+
+<body ng-controller="MadLibsController">
+    <h3>Mad Libs</h3>
+    <hr>
+    <h4>Please fill out the following!</h4>
+    <hr>
+
+    <label for="boysName">Boy's Name</label>
+    <br>
+    <input id="boysName" type="text" ng-model="boysName" placeholder="Enter a boy's name …">
+    <br>
+
+    <label for="adjective">Adjective</label>
+    <br>
+    <input id="adjective" type="text" ng-model="adjective" placeholder="Enter an adjective …">
+    <br>
+
+    <label for="pluralNoun1">Plural Noun</label>
+    <br>
+    <input id="pluralNoun1" type="text" ng-model="pluralNoun1" placeholder="Enter a plural noun …">
+    <br>
+
+    <label for="pluralNoun2">Plural Noun</label>
+    <br>
+    <input id="pluralNoun2" type="text" ng-model="pluralNoun2" placeholder="Enter a plural noun …">
+    <br>
+
+    <label for="insect">An insect, plural</label>
+    <br>
+    <input id="insect" type="text" ng-model="insect" placeholder="Enter an insect, plural …">
+    <br>
+
+    <label for="pluralNoun3">Plural Noun</label>
+    <br>
+    <input id="pluralNoun3" type="text" ng-model="pluralNoun3" placeholder="Enter a plural noun …">
+    <br>
+
+    <label for="verb">A verb ending in "s"</label>
+    <br>
+    <input id="verb" type="text" ng-model="verb" placeholder="Enter a verb ending in &quot;s&quot;">
+    <br>
+    <br>
+    <button name="generate" ng-click="generate()">Generate!</button>
+    <br>
+    <button name="reset" ng-click="reset()">Play again?</button>
+
+    <div ng-hide="!showMadLib" ng-show="showMadLib">
+        <h4>Mad to the libs yo</h4>
+        <hr>
+        <h3>
+          I'm in love with <span>{{ boysName | uppercase }}</span>. He's so <span>{{ adjective | uppercase }}</span>!
+          He has big flat <span>{{ pluralNoun1 | uppercase }}</span>, and when our <span>{{ pluralNoun2 | uppercase }}</span>
+          meet, I get <span>{{ insect | uppercase }}</span> in my stomach. I've fallen for
+          him like a ton of <span>{{ pluralNoun3 | uppercase }}</span>, and he <span>{{ verb | uppercase }}</span>
+          for me, too. But I think he's got another girlfriend. What should I do?
+        </h3>
+    </div>
+</body>
+
+</html>
