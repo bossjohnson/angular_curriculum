@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Events</title>
+    <link rel="stylesheet" href="style.css" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="main.js" charset="utf-8"></script>
+</head>
+
+<body ng-controller="myController">
+    <div class="box">
+        <h1 class="center">Random Number Generator</h1>
+        <hr>
+        <h3>
+          The number is: {{ view.number }}
+        </h3>
+        <button ng-click="pickRandomNumber()">Randomize!</button>
+    </div>
+
+    <div class="box">
+        <h1 class="center">Word Reverser</h1>
+        <hr>
+        <input type="text" ng-model="view.word">
+        <p>
+            Your word is: {{ view.word }}
+        </p>
+        <button ng-click="reverseWord()">Reverse!</button>
+    </div>
+
+    <div class="box" ng-controller="PingPongController">
+
+        <h1 class="center">Ping Pong Score Keeper</h1>
+        <hr>
+
+        <div class="flexBox">
+            <div id="playerOne" class="playerScore" ng-click="incrementScore('playerOne')" ng-class="{winner: scores.playerOne >= 11, loser: scores.playerTwo >= 11}">
+                <h2 class="white">Player 1</h2>
+                <div class="number white">{{ scores.playerOne }}</div>
+                <p class="white" ng-show="scores.playerServing === 1">
+                    Serving
+                </p>
+            </div>
+
+            <div id="playerTwo" class="playerScore" ng-click="incrementScore('playerTwo')" ng-class="{winner: scores.playerTwo >= 11, loser: scores.playerOne >= 11}">
+                <h2 class="white">Player 2</h2>
+                <div class="number white">{{ scores.playerTwo }}</div>
+                <p class="white" ng-show="scores.playerServing === 2">
+                    Serving
+                </p>
+            </div>
+        </div>
+
+        <button type="button" name="button" ng-click="resetScores()">Reset</button>
+
+    </div>
+
+</body>
+
+</html>

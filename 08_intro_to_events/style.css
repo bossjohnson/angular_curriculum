@@ -1,0 +1,40 @@
+.box {
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 1%;
+    padding: 1%;
+    text-align: center;
+}
+.center {}
+.playerScore {
+    background-color: #2C92DF;
+    border-radius: 8px;
+    height: 350px;
+    width: 350px;
+    margin: 1%;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+.flexBox {
+    display: flex;
+    justify-content: center;
+}
+.white {
+    color: white;
+}
+.winner {
+    background-color: #22B771;
+}
+.loser {
+    background-color: #F45A39;
+}
+button {
+  padding: 10px;
+  font-size: 1.8em;
+  border-radius: 8px;
+}
+.number {
+  font-size: 12em;
+}
