@@ -38,3 +38,39 @@ app.controller('PingPongController', function($scope) {
 
     $scope.resetScores();
 });
+
+app.controller('MouseEnterController', function($scope) {
+    $scope.view = {};
+    $scope.view.enterCount = 0;
+});
+
+app.controller('RandomColors', function($scope, $timeout) {
+
+    $scope.colors = {};
+    $scope.colors.list = [];
+
+    $scope.randomColor = function randomColor() {
+        var x = Math.round(0xffffff * Math.random()).toString(16);
+        var y = (6 - x.length);
+        var z = "000000";
+        var z1 = z.substring(0, y);
+        var color = "#" + z1 + x;
+        $scope.colors.list.push(color);
+        $scope.colors.startReplayAt = $scope.colors.list.length - 1;
+        return color;
+    };
+
+    $scope.replay = function(start) {
+        $timeout(function() {
+            $scope.colors.color = $scope.colors.list[start - 1];
+            if (start > 0) {
+                $scope.replay(start - 1);
+            } else {
+                $timeout(function() {
+                    $scope.colors.color = 'white';
+                    $scope.colors.list = [];
+                }, 500);
+            }
+        }, 500);
+    };
+});

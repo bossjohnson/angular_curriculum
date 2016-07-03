@@ -35,6 +35,7 @@
         <hr>
 
         <div class="flexBox">
+
             <div id="playerOne" class="playerScore" ng-click="incrementScore('playerOne')" ng-class="{winner: scores.playerOne >= 11, loser: scores.playerTwo >= 11}">
                 <h2 class="white">Player 1</h2>
                 <div class="number white">{{ scores.playerOne }}</div>
@@ -54,6 +55,30 @@
 
         <button type="button" name="button" ng-click="resetScores()">Reset</button>
 
+    </div>
+
+    <div class="box" ng-controller="MouseEnterController">
+        <h1>Enter at your own risk</h1>
+        <hr>
+        <div class="flexBoxColumn">
+            <div class="box enterMe" ng-mouseenter="view.enterCount = view.enterCount + 1">
+                <h3>The div was entered {{ view.enterCount }} times.</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="box" ng-controller="RandomColors">
+        <h1>Random Colors</h1>
+        <hr>
+        <div class="flexBoxColumn">
+            <div class="box enterMe" ng-mouseenter="colors.color = randomColor()" ng-style="{backgroundColor: colors.color}">
+            </div>
+            <button ng-click="replay(colors.startReplayAt)">Replay</button>
+        </div>
+    </div>
+
+    <div class="box">
+        
     </div>
 
 </body>

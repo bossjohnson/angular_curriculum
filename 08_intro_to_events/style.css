@@ -21,6 +21,12 @@
     display: flex;
     justify-content: center;
 }
+.flexBoxColumn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 .white {
     color: white;
 }
@@ -31,10 +37,15 @@
     background-color: #F45A39;
 }
 button {
-  padding: 10px;
-  font-size: 1.8em;
-  border-radius: 8px;
+    padding: 10px;
+    font-size: 1.8em;
+    border-radius: 8px;
 }
 .number {
-  font-size: 12em;
+    font-size: 12em;
+}
+.enterMe {
+  
+    height: 400px;
+    width: 400px;
 }
