@@ -77,8 +77,48 @@
         </div>
     </div>
 
-    <div class="box">
-        
+    <div class="box" ng-controller="AddressController">
+        <h1>Address Data Form</h1>
+        <hr>
+        <!-- The form should accept a street (line 1), street (line 2), city, state, and zip code.
+        When the data is submitted, it again should be shown to the user (displayed on the page) and
+        the form data should be cleared so that more data can be entered. -->
+        <form class="box flexBoxColumn" name="addressForm" method="post" ng-submit="submit()">
+            <label for="street1">Street (line 1)</label>
+            <input id="street1" type="text" name="street1" ng-model="address.street1" placeholder="Enter address line 1" value="{{address.street1}}">
+
+            <label for="street2">Street (line 2)</label>
+            <input id="street2" type="text" name="street2" ng-model="address.street2" placeholder="Enter address line 2" value="{{address.street2}}">
+
+            <label for="city">City</label>
+            <input id="city" type="text" name="city" ng-model="address.city" placeholder="Enter city" value="{{address.city}}">
+
+            <label for="state">State</label>
+            <input id="state" type="text" ng-model="address.state" name="state" placeholder="Enter state" value="{{address.state}}">
+
+            <label for="zip">Zip Code</label>
+            <input id="zip" type="text" ng-model="address.zip" name="zip" placeholder="Enter zip code" value="{{address.zip}}">
+
+            <button>Submit</button>
+        </form>
+
+        <div ng-show="copiedAddresses.length > 0" ng-repeat="address in copiedAddresses track by $index">
+            <div class="box">
+                <p>
+                    {{ address.street1 }}
+                    <br> {{ address.street2 }}
+                </p>
+                <p>
+                    {{ address.city }}
+                </p>
+                <p>
+                    {{ address.state }}
+                </p>
+                <p>
+                    {{ address.zip }}
+                </p>
+            </div>
+        </div>
     </div>
 
 </body>

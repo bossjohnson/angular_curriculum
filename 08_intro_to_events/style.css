@@ -22,10 +22,10 @@
     justify-content: center;
 }
 .flexBoxColumn {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .white {
     color: white;
@@ -36,7 +36,7 @@
 .loser {
     background-color: #F45A39;
 }
-button {
+button, form button {
     padding: 10px;
     font-size: 1.8em;
     border-radius: 8px;
@@ -45,7 +45,19 @@ button {
     font-size: 12em;
 }
 .enterMe {
-  
     height: 400px;
     width: 400px;
+}
+input[type="text"], input[type="number"] {
+    border: 4px inset lightgray;
+    width: 60%;
+    font-size: .8em;
+    border-radius: 8px;
+    padding: 1%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+form.box {
+    padding: 2%;
+    font-size: 2em;
 }

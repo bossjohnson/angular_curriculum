@@ -74,3 +74,24 @@ app.controller('RandomColors', function($scope, $timeout) {
         }, 500);
     };
 });
+
+app.controller('AddressController', function($scope) {
+    $scope.address = {};
+    $scope.copiedAddresses = [];
+
+    $scope.submit = function() {
+        $scope.copiedAddresses.push(angular.copy($scope.address));
+        console.log($scope.copiedAddresses);
+        $scope.resetForm();
+    };
+
+    $scope.resetForm = function() {
+        $scope.address.street1 = '';
+        $scope.address.street2 = '';
+        $scope.address.city = '';
+        $scope.address.state = '';
+        $scope.address.zip = '';
+    };
+
+    $scope.resetForm();
+});
