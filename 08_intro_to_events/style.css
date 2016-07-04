@@ -61,3 +61,42 @@ form.box {
     padding: 2%;
     font-size: 2em;
 }
+.greenish {
+    background-color: #55A956;
+}
+.newContact {
+    width: 100%;
+    font-size: .7em;
+}
+.newContact input {
+    width: auto;
+    padding: 5px;
+}
+.newContact button {
+    font-size: 1em;
+    padding: 5px;
+}
+.searchBar {
+    text-align: left;
+    font-size: 1.5em;
+}
+.searchBar input {
+    width: auto;
+}
+.noBorder {
+    border: none;
+}
+.alignLeft {
+    text-align: left;
+}
+.testBorder {
+    border: 4px dotted black;
+}
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+tr:nth-child(2n+ 1) {
+    background-color: lightgray;
+}

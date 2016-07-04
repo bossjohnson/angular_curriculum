@@ -81,7 +81,6 @@ app.controller('AddressController', function($scope) {
 
     $scope.submit = function() {
         $scope.copiedAddresses.push(angular.copy($scope.address));
-        console.log($scope.copiedAddresses);
         $scope.resetForm();
     };
 
@@ -94,4 +93,41 @@ app.controller('AddressController', function($scope) {
     };
 
     $scope.resetForm();
+});
+
+
+app.controller('ContactsAppController', function($scope) {
+    $scope.contacts = [];
+    $scope.contact = {};
+    $scope.contact.search = '';
+    $scope.contact.match = true;
+
+    $scope.submit = function() {
+        var newContact = {
+            name: $scope.contact.name,
+            email: $scope.contact.email,
+            phone: $scope.contact.phone,
+            match: true
+        };
+        $scope.contacts.push(newContact);
+    };
+    $scope.searchCheck = function(term) {
+        if (!term) {
+            for (var i = 0; i < $scope.contacts.length; i++) {
+                $scope.contacts[i].match = true
+            }
+            return;
+        }
+        for (var i = 0; i < $scope.contacts.length; i++) {
+            var name = $scope.contacts[i].name.split(' ').join('').toLowerCase();
+            for (var j = 0; j < $scope.contact.search.length; j++) {
+                if (name.indexOf($scope.contact.search[j]) === -1) {
+                    $scope.contacts[i].match = false;
+                    break;
+                }
+                $scope.contacts[i].match = true;
+            }
+        }
+
+    };
 });

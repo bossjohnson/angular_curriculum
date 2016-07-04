@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Angular Events</title>
     <link rel="stylesheet" href="style.css" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script src="main.js" charset="utf-8"></script>
 </head>
@@ -119,6 +120,43 @@
                 </p>
             </div>
         </div>
+    </div>
+
+    <div class="box" ng-controller="ContactsAppController">
+        <h1>Contacts App</h1>
+        <hr>
+
+        <form class="box noBorder alignLeft" method="post" ng-submit="submit()">
+            <div class="newContact">
+                <label for="Name">Name</label>
+                <input type="text" name="name" placeholder="name" ng-model="contact.name">
+
+                <label for="email">Email</label>
+                <input type="text" name="email" placeholder="email" ng-model="contact.email">
+
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" placeholder="phone" ng-model="contact.phone">
+
+                <button class="greenish white">Add Contact</button>
+            </div>
+        </form>
+        <div class="searchBar">
+            Search <span class="fa fa-search"></span>
+            <input type="text" name="search" ng-model="contact.search" placeholder="name" ng-change="searchCheck(contact.search)">
+        </div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+            <tr ng-repeat="person in contacts" ng-show="person.match">
+                <td>{{ person.name }}</td>
+                <td>{{ person.email }}</td>
+                <td>{{ person.phone }}</td>
+            </tr>
+
+        </table>
     </div>
 
 </body>
