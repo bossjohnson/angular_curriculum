@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="RedditClone">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+    <script src="main.js">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-controller="RedditController">
+    <!--
+Each post's date/time is displayed nicely: "Yesterday at 3:09pm", "Last Thursday at 4:42am", etc. You will need an external library. Watch the video for more details.
+A user can click to view existing comments on a specific post
+The number of comments is correctly pluralized
+A user can add a new comment to a specific post
+The new post form and comment forms can be toggled on and off
+A user can search through posts
+A user can sort posts by votes, date, and title.
+Animate posts as they are added and removed from the search results.
+Style the app. It should look better than my implementation.
+-->
+    <header>
+        <h1>Reddit Clone</h1>
+        <button name="submitPost" ng-click="showNewPostForm()"><span class="fa fa-plus"></span>Submit Post</button>
+        <input type="text" name="search" placeholder="Search">
+        <button name="sortBy">Sort by<span class="fa fa-sort-desc"></span></button>
+    </header>
+
+    <main>
+
+        <form name="newPostForm" class="newPostForm" action="#" method="post" ng-show="post.newPost"
+            novalidate ng-submit="submitPost($event)">
+
+            <label for="title">Title</label>
+            <br>
+            <input id="title" type="text" name="title" placeholder="Title" ng-model="post.title"
+                required ng-class="{'error': newPostForm.title.$invalid && newPostForm.title.$touched}">
+            <br>
+
+            <label for="author">Author</label>
+            <br>
+            <input id="author" type="text" name="author" placeholder="Author" ng-model="post.author"
+                required ng-class="{'error': newPostForm.author.$invalid && newPostForm.author.$touched}">
+            <br>
+
+            <label for="imageURL">Image URL</label>
+            <br>
+            <input id="imageURL" type="text" name="imageURL" placeholder="Image URL"
+                ng-model="post.imageURL" required ng-class="{'error': newPostForm.imageURL.$invalid && newPostForm.imageURL.$touched}">
+            <br>
+
+            <label for="description">Description</label>
+            <br>
+            <input id="description" type="text" name="description" placeholder="Description"
+                ng-model="post.description" required ng-class="{'error': newPostForm.description.$invalid && newPostForm.description.$touched}">
+            <br>
+
+            <input type="submit" name="submitPost" value="Submit Post" ng-disabled="newPostForm.$invalid">
+
+        </form>
+
+        <section class="showPosts">
+            <div class="post unselectable" ng-repeat="post in posts | orderBy: 'upVotes' : true">
+                <img ng-src="{{ post.imageURL }}" alt="image">
+                <h2>{{ post.title }} | <span class="fa fa-arrow-up" ng-click="upVote(post)"></span> <span class="fa fa-arrow-down" ng-click="downVote(post)"></span> <span ng-class="{'positive': post.upVotes > 0,
+                'negative': post.upVotes < 0, 'zero': post.upVotes === 0 }">{{ post.upVotes }}</span></h2>
+
+                <div class="postFooter">
+                    <span class="fa fa-calendar"></span> {{ post.date | date }} |
+                    <span class="fa fa-comment"> {{ post.comments.length }} comments</span> |
+                    <span class="fa fa-pencil"> Add comment</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
