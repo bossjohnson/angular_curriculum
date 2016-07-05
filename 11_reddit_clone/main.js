@@ -5,7 +5,7 @@ app.controller('RedditController', function($scope) {
 
 
     $scope.showNewPostForm = function() {
-        $scope.post.newPost = true;
+        $scope.post.newPost = !$scope.post.newPost;
     };
 
     $scope.submitPost = function(event) {
@@ -27,7 +27,8 @@ app.controller('RedditController', function($scope) {
             comments: [],
             newPost: false,
             upVotes: 0,
-            showComments: false
+            showComments: false,
+            newComment: false
         };
     };
 
@@ -41,6 +42,15 @@ app.controller('RedditController', function($scope) {
 
     $scope.showComments = function(post) {
         post.showComments = !post.showComments;
+    };
+
+    $scope.newComment = function(post) {
+        post.newComment = !post.newComment;
+    };
+
+    $scope.submitComment = function (post) {
+        post.comments.push({author: post.commentAuthor, text: post.commentText});
+        post.newComment = false;
     };
 
     $scope.resetPost();

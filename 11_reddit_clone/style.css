@@ -43,7 +43,13 @@ label {
       float: right; }
 
 .comments {
-  margin: .5%; }
+  margin: 0.5%; }
+
+.postFooter span:hover {
+  cursor: pointer; }
+
+.newComment {
+  margin: 1%; }
 
 .error {
   background-color: lightcoral;
