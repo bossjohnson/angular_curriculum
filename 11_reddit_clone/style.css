@@ -42,6 +42,9 @@ label {
     .post .postWrapper .author {
       float: right; }
 
+.comments {
+  margin: .5%; }
+
 .error {
   background-color: lightcoral;
   border: 2px solid red; }

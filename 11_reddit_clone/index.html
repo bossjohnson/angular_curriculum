@@ -16,7 +16,6 @@
     <!--
 Each post's date/time is displayed nicely: "Yesterday at 3:09pm", "Last Thursday at 4:42am", etc. You will need an external library. Watch the video for more details.
 A user can click to view existing comments on a specific post
-The number of comments is correctly pluralized
 A user can add a new comment to a specific post
 The new post form and comment forms can be toggled on and off
 A user can search through posts
@@ -64,7 +63,32 @@ Style the app. It should look better than my implementation.
 
         </form>
 
-        <section class="showPosts">
+        <section class="showPosts" ng-init="posts = [{
+                  title: 'Blah',
+                  author: 'Bob Loblaw',
+                  imageURL: 'https://placeimg.com/100/101/any',
+                  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa itaque rerum, eos amet optio aut doloribus incidunt ipsum vero tempore in excepturi, enim debitis cum, molestiae ad eaque labore tenetur?',
+                  date: 'Sometime',
+                  comments: [{author: 'Michael Bluth', text: 'Still lobbing law bombs eh?'}, {author: 'Josh', text: 'I love this show.'}],
+                  upVotes: 5
+                },{
+                  title: 'I Love Rubber Duckies',
+                  author: 'Ernie',
+                  imageURL: 'https://placeimg.com/100/102/any',
+                  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa itaque rerum, eos amet optio aut doloribus incidunt ipsum vero tempore in excepturi, enim debitis cum, molestiae ad eaque labore tenetur?',
+                  date: 'Sometime',
+                  comments: [{author: 'Bert', text: '...and I love you, Ernie.'}],
+                  upVotes: 2
+                },{
+                  title: 'Tacos Are Officially Delicious',
+                  author: 'Texas Pete',
+                  imageURL: 'https://placeimg.com/100/100/any',
+                  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa itaque rerum, eos amet optio aut doloribus incidunt ipsum vero tempore in excepturi, enim debitis cum, molestiae ad eaque labore tenetur?',
+                  date: 'Sometime',
+                  comments: [],
+                  upVotes: -2
+                }
+                ]">
             <div class="post unselectable" ng-repeat="post in posts | orderBy: 'upVotes' : true">
                 <div class="postImage">
                     <img ng-src="{{ post.imageURL }}" alt="image">
@@ -83,8 +107,15 @@ Style the app. It should look better than my implementation.
                     <div class="postFooter">
                         <span class="fa fa-calendar"></span> {{ post.date
                         | date }} |
-                        <span class="fa fa-comment"> {{ post.comments.length }} comments</span>                        |
+                        <span class="fa fa-comment" ng-click="showComments(post)"> {{ post.comments.length }} <span ng-pluralize count="post.comments.length" when="{'one': 'comment', 'other': 'comments'}"></span></span>
+                        |
                         <span class="fa fa-pencil"> Add comment</span>
+                    </div>
+                    <div class="comments" ng-show="post.showComments" ng-repeat="comment in post.comments">
+                        <b>{{ comment.author }}</b> - {{ comment.text }}
+                    </div>
+                    <div class="newComment" ng-show="post.newComment">
+
                     </div>
 
                 </div>

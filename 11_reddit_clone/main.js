@@ -26,7 +26,8 @@ app.controller('RedditController', function($scope) {
             date: null,
             comments: [],
             newPost: false,
-            upVotes: 0
+            upVotes: 0,
+            showComments: false
         };
     };
 
@@ -36,6 +37,10 @@ app.controller('RedditController', function($scope) {
 
     $scope.downVote = function(post) {
         post.upVotes -= 1;
+    };
+
+    $scope.showComments = function(post) {
+        post.showComments = !post.showComments;
     };
 
     $scope.resetPost();
