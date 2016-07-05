@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ValidationApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="basicBox">
+        <h1>My First Form</h1>
+        <hr>
+        <form action="#" method="post">
+            <label for="firstName">First name:</label>
+            <input id="firstName" type="text" name="firstName" placeholder="first name"
+                required>
+
+            <label for="lastName">Last name:</label>
+            <input id="lastName" type="text" name="lastName" placeholder="last name"
+                required>
+
+            <input type="submit" value="Click me!">
+        </form>
+    </div>
+
+
+
+    <div class="basicBox">
+        <h1>Quiz Form</h1>
+        <hr>
+        <form action="#" method="post" name="quizForm" ng-controller="Validator">
+            <label for="question">Question:</label>
+            <input id="question" type="text" name="question" ng-model="quiz.question"
+                ng-class="{'valid': quizForm.question.$valid}" required>
+            <br>
+            <p ng-show="!quizForm.question.$valid">
+                please enter a valid question
+            </p>
+
+            <label for="answer">Answer:</label>
+            <input id="answer" type="text" name="answer" ng-model="quiz.answer" value="answer"
+                required ng-minlength="4" ng-class="{'correct': quizForm.answer.$valid && !quizForm.answer.$pristine}">
+            <br>
+
+            <label for="username">Username:</label>
+            <input id="username" type="text" name="username" ng-model="quiz.username"
+                required ng-minlength="3">
+            <span ng-show="quizForm.username.$error">
+                {{ quizForm.username.$error }}
+            </span>
+            <br>
+
+            <label for="minMax">Min 4, Max 20:
+            </label>
+            <input id="minMax" type="minMax" name="minMax" ng-model="minMax" ng-minlength="4"
+                ng-maxlength="20">
+            <br>
+
+            <label for="oneThroughFive">One through five:
+            </label>
+            <input id="oneThroughFive" type="number" name="oneThroughFive" ng-pattern="[1-5]">
+
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+    <div class="basicBox container"  ng-controller="UserFormController">
+        <h1>User Form</h1>
+        <hr>
+        <h2>Here are our users</h2>
+        <h3 ng-repeat="user in users">{{ user }}</h3>
+        <form id="userForm" name="userForm" action="#" method="post"
+            ng-submit="submit($event)">
+
+            <label for="username" ng-class="{
+                'has-error': userForm.username.$invalid && userForm.username.$dirty,
+                'has-success': userForm.username.$valid}">Username:</label>
+            <br>
+            <p ng-show="userForm.username.$invalid && userForm.username.$touched" class="error">
+                Please enter a valid username.
+            </p>
+            <input id="username" type="text" name="username" ng-model="user.username"
+                ng-minlength="3" ng-maxlength="12" class="col-md-12" required
+                ng-class="{
+                'has-error': userForm.username.$invalid && userForm.username.$dirty,
+                'has-success': userForm.username.$valid}">
+            <br>
+
+            <label for="password" ng-class="{
+                'has-error': userForm.password.$invalid && userForm.password.$dirty,
+                'has-success': userForm.password.$valid}">Password:</label>
+            <br>
+            <p ng-show="userForm.password.$invalid && userForm.password.$touched" class="error">
+                Please enter a valid password.
+            </p>
+            <input id="password" type="password" name="password" ng-model="user.password"
+                ng-minlength="3" ng-maxlength="12" class="col-md-12" required
+                ng-class="{'has-error': userForm.password.$invalid && userForm.password.$dirty,
+                'has-success': userForm.password.$valid}">
+            <br>
+
+            <label for="email" ng-class="{
+            'has-error': userForm.email.$invalid && userForm.email.$dirty,
+            'has-success': userForm.email.$valid}">Email:</label>
+            <br>
+            <p ng-show="userForm.email.$invalid && userForm.email.$touched" class="error">
+                Please enter a valid email.
+            </p>
+            <input id="email " type="email " name="email " ng-model="user.email " class="col-md-12"
+                required ng-class="{
+                'has-error': userForm.email.$invalid && userForm.email.$dirty,
+                'has-success': userForm.email.$valid}">
+            <br>
+
+            <label for="zip" ng-class="{
+            'has-error': userForm.zip.$invalid && userForm.zip.$dirty,
+            'has-success': userForm.zip.$valid}">Zip Code:</label>
+            <br>
+            <p ng-show="userForm.zip.$invalid && userForm.zip.$touched" class="error">
+                Please enter a valid zip code.
+            </p>
+            <input id="zip " type="number " name="zip" ng-model="user.zip" ng-pattern="/^\d\d\d\d\d$/"
+                class="col-md-12" required ng-class="{
+                'has-error': userForm.zip.$invalid && userForm.zip.$dirty,
+                'has-success': userForm.zip.$valid}">
+
+            <input type="submit" value="Submit" ng-disabled="userForm.$invalid">
+
+        </form>
+
+    </div>
+</body>
+
+</html>

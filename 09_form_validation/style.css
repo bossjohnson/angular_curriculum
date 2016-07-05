@@ -1,0 +1,36 @@
+.basicBox {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 1%;
+}
+h1 {
+    text-align: center;
+}
+.valid {
+    background-color: green;
+}
+.correct {
+    background-color: blue;
+}
+.error {
+    color: red;
+}
+input.has-error {
+    border: 2px solid red;
+}
+label.has-error {
+    color: red;
+}
+input.has-success {
+    border: 2px solid green;
+}
+label.has-success {
+    color: green;
+}
+.container {
+    margin: 5%;
+    width: 90%;
+}
+.container input {
+    margin-bottom: 2%;
+}
