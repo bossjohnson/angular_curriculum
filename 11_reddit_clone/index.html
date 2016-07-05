@@ -66,14 +66,27 @@ Style the app. It should look better than my implementation.
 
         <section class="showPosts">
             <div class="post unselectable" ng-repeat="post in posts | orderBy: 'upVotes' : true">
-                <img ng-src="{{ post.imageURL }}" alt="image">
-                <h2>{{ post.title }} | <span class="fa fa-arrow-up" ng-click="upVote(post)"></span> <span class="fa fa-arrow-down" ng-click="downVote(post)"></span> <span ng-class="{'positive': post.upVotes > 0,
-                'negative': post.upVotes < 0, 'zero': post.upVotes === 0 }">{{ post.upVotes }}</span></h2>
+                <div class="postImage">
+                    <img ng-src="{{ post.imageURL }}" alt="image">
+                </div>
+                <div class="postWrapper">
+                    <div class="postHeader">
+                        <h2>{{ post.title }} | <span class="fa fa-arrow-up" ng-click="upVote(post)"></span> <span class="fa fa-arrow-down" ng-click="downVote(post)"></span> <span ng-class="{'positive': post.upVotes > 0,
+                            'negative': post.upVotes < 0, 'zero': post.upVotes === 0 }">{{ post.upVotes }}</span></h2>
+                        <span class="author">By {{ post.author }}</span>
+                    </div>
 
-                <div class="postFooter">
-                    <span class="fa fa-calendar"></span> {{ post.date | date }} |
-                    <span class="fa fa-comment"> {{ post.comments.length }} comments</span> |
-                    <span class="fa fa-pencil"> Add comment</span>
+                    <div class="postBody">
+                        {{ post.description }}
+                    </div>
+
+                    <div class="postFooter">
+                        <span class="fa fa-calendar"></span> {{ post.date
+                        | date }} |
+                        <span class="fa fa-comment"> {{ post.comments.length }} comments</span>                        |
+                        <span class="fa fa-pencil"> Add comment</span>
+                    </div>
+
                 </div>
             </div>
         </section>

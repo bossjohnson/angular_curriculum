@@ -31,7 +31,16 @@ label {
   border: 2px solid gray;
   background-color: lightgray;
   margin: 2%;
-  padding: 1%; }
+  padding: 1%;
+  display: flex; }
+  .post .postWrapper {
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1; }
+    .post .postWrapper .author {
+      float: right; }
 
 .error {
   background-color: lightcoral;
