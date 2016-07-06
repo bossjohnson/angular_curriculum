@@ -15,7 +15,6 @@
 <body ng-controller="RedditController">
     <!--
 Each post's date/time is displayed nicely: "Yesterday at 3:09pm", "Last Thursday at 4:42am", etc. You will need an external library. Watch the video for more details.
-A user can add a new comment to a specific post
 A user can search through posts
 A user can sort posts by votes, date, and title.
 Animate posts as they are added and removed from the search results.
@@ -87,42 +86,42 @@ Style the app. It should look better than my implementation.
                   upVotes: -2
                 }
                 ]">
-            <div class="post unselectable" ng-repeat="post in posts | orderBy: 'upVotes' : true">
+            <div class="post unselectable" ng-repeat="thisPost in posts | orderBy: 'upVotes' : true">
                 <div class="postImage">
-                    <img ng-src="{{ post.imageURL }}" alt="image">
+                    <img ng-src="{{ thisPost.imageURL }}" alt="image">
                 </div>
                 <div class="postWrapper">
                     <div class="postHeader">
-                        <h2>{{ post.title }} | <span class="fa fa-arrow-up" ng-click="upVote(post)"></span> <span class="fa fa-arrow-down" ng-click="downVote(post)"></span> <span ng-class="{'positive': post.upVotes > 0,
-                            'negative': post.upVotes < 0, 'zero': post.upVotes === 0 }">{{ post.upVotes }}</span></h2>
-                        <span class="author">By {{ post.author }}</span>
+                        <h2>{{ thisPost.title }} | <span class="fa fa-arrow-up" ng-click="upVote(thisPost)"></span> <span class="fa fa-arrow-down" ng-click="downVote(thisPost)"></span> <span ng-class="{'positive': thisPost.upVotes > 0,
+                            'negative': thisPost.upVotes < 0, 'zero': thisPost.upVotes === 0 }">{{ thisPost.upVotes }}</span></h2>
+                        <span class="author">By {{ thisPost.author }}</span>
                     </div>
 
                     <div class="postBody">
-                        {{ post.description }}
+                        {{ thisPost.description }}
                     </div>
 
                     <div class="postFooter">
-                        <span class="fa fa-calendar"></span> {{ post.date
+                        <span class="fa fa-calendar"></span> {{ thisPost.date
                         | date }} |
-                        <span class="fa fa-comment" ng-click="showComments(post)"> {{ post.comments.length }} <span ng-pluralize count="post.comments.length" when="{'one': 'comment', 'other': 'comments'}"></span></span>
+                        <span class="fa fa-comment" ng-click="showComments(thisPost)"> {{ thisPost.comments.length }} <span ng-pluralize count="thisPost.comments.length" when="{'one': 'comment', 'other': 'comments'}"></span></span>
                         |
-                        <span class="fa fa-pencil" ng-click="newComment(post)"> Add comment</span>
+                        <span class="fa fa-pencil" ng-click="newComment(thisPost)"> Add comment</span>
                     </div>
-                    <div class="comments" ng-show="post.showComments" ng-repeat="comment in post.comments">
+                    <div class="comments" ng-show="thisPost.showComments" ng-repeat="comment in thisPost.comments">
                         <b>{{ comment.author }}</b> - {{ comment.text }}
                     </div>
-                    <form name="newCommentForm" class="newComment" ng-show="post.newComment"
-                        novalidate ng-submit="submitComment(post)">
+                    <form name="newCommentForm{{$index}}" action="#" method="post" class="newComment"
+                        ng-show="thisPost.newComment" novalidate ng-submit="submitComment($event, thisPost)">
                         <label for="commentAuthor"><b>Author</b></label>
                         <input id="commentAuthor" type="text" name="commentAuthor" placeholder="username"
-                            required ng-class="{'error': newCommentForm.commentAuthor.$invalid && newCommentForm.commentAuthor.$touched}"
-                            ng-model="post.commentAuthor">
+                            required ng-class="{'error': newCommentForm{{$index}}.commentAuthor.$invalid && newCommentForm{{$index}}.commentAuthor.$touched}"
+                            ng-model="thisPost.commentAuthor">
                         <label for="commentText"><b>Text</b></label>
                         <input id="commentText" type="text" name="commentText" placeholder="comment text"
-                            required ng-class="{'error': newCommentForm.commentText.$invalid && newCommentForm.commentText.$touched}"
-                            ng-model="post.commentText">
-                        <input type="submit" value="Add Comment" ng-disabled="newCommentForm.$invalid">
+                            required ng-class="{'error': newCommentForm{{$index}}.commentText.$invalid && newCommentForm{{$index}}.commentText.$touched}"
+                            ng-model="thisPost.commentText">
+                        <input type="submit" value="Add Comment" ng-disabled="newCommentForm{{$index}}.$invalid">
                     </form>
 
                 </div>

@@ -48,8 +48,15 @@ app.controller('RedditController', function($scope) {
         post.newComment = !post.newComment;
     };
 
-    $scope.submitComment = function (post) {
-        post.comments.push({author: post.commentAuthor, text: post.commentText});
+    $scope.submitComment = function(event, post) {
+        event.preventDefault();
+        console.log(event);
+        post.comments.push({
+            author: post.commentAuthor,
+            text: post.commentText
+        });
+        post.commentAuthor = '';
+        post.commentText = '';
         post.newComment = false;
     };
 
