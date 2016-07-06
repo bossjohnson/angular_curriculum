@@ -2,7 +2,16 @@ var app = angular.module('RedditClone', ['ngAnimate']);
 
 app.controller('RedditController', function($scope) {
     $scope.posts = [];
+    $scope.sort = {};
+    $scope.sort.sortBy = 'upVotes';
 
+    $scope.Date = function(arg) {
+        return moment(arg);
+    };
+
+    $scope.momentize = function(date) {
+        return moment(date).calendar();
+    };
 
     $scope.showNewPostForm = function() {
         $scope.post.newPost = !$scope.post.newPost;
@@ -10,11 +19,10 @@ app.controller('RedditController', function($scope) {
 
     $scope.submitPost = function(event) {
         event.preventDefault();
-        $scope.post.date = Date.now();
+        $scope.post.date = moment();
         $scope.posts.push(angular.copy($scope.post));
         $scope.resetPost();
         $scope.newPostForm.$setUntouched();
-        console.log($scope.posts);
     };
 
     $scope.resetPost = function() {
@@ -28,7 +36,8 @@ app.controller('RedditController', function($scope) {
             newPost: false,
             upVotes: 0,
             showComments: false,
-            newComment: false
+            newComment: false,
+            show: true
         };
     };
 
@@ -48,9 +57,8 @@ app.controller('RedditController', function($scope) {
         post.newComment = !post.newComment;
     };
 
-    $scope.submitComment = function(event, post) {
+    $scope.submitComment = function(event, post, form) {
         event.preventDefault();
-        console.log(event);
         post.comments.push({
             author: post.commentAuthor,
             text: post.commentText
@@ -58,6 +66,7 @@ app.controller('RedditController', function($scope) {
         post.commentAuthor = '';
         post.commentText = '';
         post.newComment = false;
+        form.$setUntouched();
     };
 
     $scope.resetPost();

@@ -1,99 +1,160 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="RedditClone">
+<html lang="en"
+    ng-app="RedditClone">
 
 <head>
     <meta charset="UTF-8">
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
-    <script src="main.js">
-    </script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="style.css">
 </head>
 
 <body ng-controller="RedditController">
     <!--
-Each post's date/time is displayed nicely: "Yesterday at 3:09pm", "Last Thursday at 4:42am", etc. You will need an external library. Watch the video for more details.
-A user can search through posts
 A user can sort posts by votes, date, and title.
-Animate posts as they are added and removed from the search results.
+Animate posts as they are added and removed from the search <results class=""></results>
 Style the app. It should look better than my implementation.
 -->
     <header>
+
         <h1>Reddit Clone</h1>
-        <button name="submitPost" ng-click="showNewPostForm()"><span class="fa fa-plus"></span>Submit Post</button>
-        <input type="text" name="search" placeholder="Search">
-        <button name="sortBy">Sort by<span class="fa fa-sort-desc"></span></button>
+
+        <button name="submitPost"
+            ng-click="showNewPostForm()"><span class="fa fa-plus"></span> Submit Post</button>
+
+        <input type="text"
+            class="search"
+            name="search"
+            placeholder="Search"
+            ng-model="searchString">
+
+        <div class="sortContainer">
+            <label for="sort">Sort by</label>
+            <select id="sort"
+                name="sortBy"
+                ng-model="sort.sortBy">
+                <option value="upVotes">votes</option>
+                <option value="date">date</option>
+                <option value="title">title</option>
+            </select>
+        </div>
+
     </header>
 
     <main>
 
-        <form name="newPostForm" class="newPostForm" action="#" method="post" ng-show="post.newPost"
-            novalidate ng-submit="submitPost($event)">
+        <form name="newPostForm"
+            class="newPostForm"
+            action="#"
+            method="post"
+            ng-show="post.newPost"
+            novalidate
+            ng-submit="submitPost($event)">
 
             <label for="title">Title</label>
             <br>
-            <input id="title" type="text" name="title" placeholder="Title" ng-model="post.title"
-                required ng-class="{'error': newPostForm.title.$invalid && newPostForm.title.$touched}">
+            <input id="title"
+                type="text"
+                name="title"
+                placeholder="Title"
+                ng-model="post.title"
+                required
+                ng-class="{'error': newPostForm.title.$invalid && newPostForm.title.$touched}">
             <br>
 
             <label for="author">Author</label>
             <br>
-            <input id="author" type="text" name="author" placeholder="Author" ng-model="post.author"
-                required ng-class="{'error': newPostForm.author.$invalid && newPostForm.author.$touched}">
+            <input id="author"
+                type="text"
+                name="author"
+                placeholder="Author"
+                ng-model="post.author"
+                required
+                ng-class="{'error': newPostForm.author.$invalid && newPostForm.author.$touched}">
             <br>
 
             <label for="imageURL">Image URL</label>
             <br>
-            <input id="imageURL" type="text" name="imageURL" placeholder="Image URL"
-                ng-model="post.imageURL" required ng-class="{'error': newPostForm.imageURL.$invalid && newPostForm.imageURL.$touched}">
+            <input id="imageURL"
+                type="text"
+                name="imageURL"
+                placeholder="Image URL"
+                ng-model="post.imageURL"
+                required
+                ng-class="{'error': newPostForm.imageURL.$invalid && newPostForm.imageURL.$touched}">
             <br>
 
             <label for="description">Description</label>
             <br>
-            <input id="description" type="text" name="description" placeholder="Description"
-                ng-model="post.description" required ng-class="{'error': newPostForm.description.$invalid && newPostForm.description.$touched}">
+            <input id="description"
+                type="text"
+                name="description"
+                placeholder="Description"
+                ng-model="post.description"
+                required
+                ng-class="{'error': newPostForm.description.$invalid && newPostForm.description.$touched}">
             <br>
 
-            <input type="submit" name="submitPost" value="Submit Post" ng-disabled="newPostForm.$invalid">
+            <input type="submit"
+                name="submitPost"
+                value="Submit Post"
+                ng-disabled="newPostForm.$invalid">
 
         </form>
 
-        <section class="showPosts" ng-init="posts = [{
-                  title: 'Blah',
+        <section class="showPosts"
+            ng-init="posts = [{
+                  title: 'Bob Loblaw\'s Law Blog',
                   author: 'Bob Loblaw',
-                  imageURL: 'https://placeimg.com/100/101/any',
-                  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa itaque rerum, eos amet optio aut doloribus incidunt ipsum vero tempore in excepturi, enim debitis cum, molestiae ad eaque labore tenetur?',
-                  date: 'Sometime',
-                  comments: [{author: 'Michael Bluth', text: 'Still lobbing law bombs eh?'}, {author: 'Josh', text: 'I love this show.'}],
-                  upVotes: 5
+                  imageURL: 'http://vignette3.wikia.nocookie.net/arresteddevelopment/images/e/e6/3x3_Bob_Loblaw.png/revision/latest?cb=20121117203508',
+                  description: 'Pickled tousled +1 marfa. Banjo chartreuse readymade, schlitz direct trade small batch try-hard narwhal tacos chia. Schlitz ennui chambray gastropub, mixtape thundercats mumblecore tousled meggings hoodie helvetica lumbersexual distillery next level. Echo park green juice gastropub hammock forage kombucha. Wayfarers selvage squid, art party leggings literally fanny pack PBR&B pop-up semiotics microdosing. Waistcoat venmo schlitz, occupy listicle blue bottle fap. Street art pitchfork lo-fi, fashion axe PBR&B williamsburg swag tilde thundercats pabst truffaut.',
+                  date: Date(1467785218836),
+                  comments: [{author: 'Michael Bluth', text: 'Still lobbing law bombs?'}, {author: 'Josh', text: 'I love this show.'}],
+                  upVotes: 5,
+                  show: true
                 },{
                   title: 'I Love Rubber Duckies',
                   author: 'Ernie',
-                  imageURL: 'https://placeimg.com/100/102/any',
-                  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa itaque rerum, eos amet optio aut doloribus incidunt ipsum vero tempore in excepturi, enim debitis cum, molestiae ad eaque labore tenetur?',
-                  date: 'Sometime',
+                  imageURL: 'http://vignette3.wikia.nocookie.net/muppet/images/0/09/Rubberduckieplayskool.jpg/revision/latest?cb=20091129042307',
+                  description: 'Poutine shabby chic knausgaard, photo booth gluten-free +1 try-hard yuccie schlitz. Messenger bag mixtape cronut, ramps literally try-hard intelligentsia hella. Freegan occupy heirloom swag, chambray kinfolk godard tote bag single-origin coffee etsy leggings fap hammock ramps. Austin cliche irony, paleo hoodie 3 wolf moon bicycle rights fashion axe whatever 8-bit. Marfa neutra narwhal cray, ethical four dollar toast trust fund four loko gastropub crucifix everyday carry. Trust fund intelligentsia you probably haven\'t heard of them brooklyn, twee pickled shabby chic fanny pack health goth authentic. Scenester craft beer slow-carb +1 XOXO, meditation deep v.',
+                  date: Date(1467787428836 - 100000000),
                   comments: [{author: 'Bert', text: '...and I love you, Ernie.'}],
-                  upVotes: 2
+                  upVotes: 2,
+                  show: true
                 },{
                   title: 'Tacos Are Officially Delicious',
                   author: 'Texas Pete',
-                  imageURL: 'https://placeimg.com/100/100/any',
-                  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa itaque rerum, eos amet optio aut doloribus incidunt ipsum vero tempore in excepturi, enim debitis cum, molestiae ad eaque labore tenetur?',
-                  date: 'Sometime',
+                  imageURL: 'http://www.tacobueno.com/media/1339/beeftacolarge.png?quality=65',
+                  description: 'Wolf irony lumbersexual godard neutra cliche. Meggings kombucha migas VHS, tilde DIY yr street art kitsch try-hard cray authentic knausgaard freegan pork belly. Selfies affogato pour-over sartorial, church-key cred gentrify lomo distillery. Hella aesthetic next level tattooed yuccie sustainable. Chartreuse asymmetrical skateboard, try-hard sartorial mlkshk narwhal leggings salvia post-ironic waistcoat sustainable DIY direct trade authentic. Next level artisan plaid tousled, vinyl you probably haven\'t heard of them lumbersexual actually leggings chia 8-bit selvage polaroid whatever. Bushwick mumblecore chia migas forage, you probably haven\'t heard of them blog viral crucifix.',
+                  date: Date(1467787428836 - 200090000),
                   comments: [],
-                  upVotes: -2
+                  upVotes: -2,
+                  show: true
                 }
                 ]">
-            <div class="post unselectable" ng-repeat="thisPost in posts | orderBy: 'upVotes' : true">
+            <div class="post unselectable"
+                ng-repeat="thisPost in posts | orderBy: sort.sortBy : true | filter : searchString track by $index"
+
+                ng-show="thisPost.show">
                 <div class="postImage">
-                    <img ng-src="{{ thisPost.imageURL }}" alt="image">
+                    <img ng-src="{{ thisPost.imageURL }}"
+                        alt="image">
                 </div>
                 <div class="postWrapper">
                     <div class="postHeader">
-                        <h2>{{ thisPost.title }} | <span class="fa fa-arrow-up" ng-click="upVote(thisPost)"></span> <span class="fa fa-arrow-down" ng-click="downVote(thisPost)"></span> <span ng-class="{'positive': thisPost.upVotes > 0,
-                            'negative': thisPost.upVotes < 0, 'zero': thisPost.upVotes === 0 }">{{ thisPost.upVotes }}</span></h2>
+                        <h2>{{ thisPost.title }} |
+                          <span class="fa fa-arrow-up" ng-click="upVote(thisPost)"></span>
+                          <span class="fa fa-arrow-down" ng-click="downVote(thisPost)"></span>
+                          <span ng-class="{'positive': thisPost.upVotes > 0,
+                            'negative': thisPost.upVotes < 0, 'zero': thisPost.upVotes === 0 }">{{ thisPost.upVotes }}
+                          </span>
+                        </h2>
                         <span class="author">By {{ thisPost.author }}</span>
                     </div>
 
@@ -102,28 +163,47 @@ Style the app. It should look better than my implementation.
                     </div>
 
                     <div class="postFooter">
-                        <span class="fa fa-calendar"></span> {{ thisPost.date
-                        | date }} |
-                        <span class="fa fa-comment" ng-click="showComments(thisPost)"> {{ thisPost.comments.length }} <span ng-pluralize count="thisPost.comments.length" when="{'one': 'comment', 'other': 'comments'}"></span></span>
+                        <span class="fa fa-calendar"></span> {{ momentize(thisPost.date)
+                        }} |
+                        <span class="fa fa-comment"
+                            ng-click="showComments(thisPost)"> {{ thisPost.comments.length }} <span ng-pluralize count="thisPost.comments.length" when="{'one': 'comment', 'other': 'comments'}"></span></span>
                         |
-                        <span class="fa fa-pencil" ng-click="newComment(thisPost)"> Add comment</span>
+                        <span class="fa fa-pencil"
+                            ng-click="newComment(thisPost)"> Add comment</span>
                     </div>
-                    <div class="comments" ng-show="thisPost.showComments" ng-repeat="comment in thisPost.comments">
+                    <div class="comments"
+                        ng-show="thisPost.showComments"
+                        ng-repeat="comment in thisPost.comments">
                         <b>{{ comment.author }}</b> - {{ comment.text }}
                     </div>
-                    <form name="newCommentForm{{$index}}" action="#" method="post" class="newComment"
-                        ng-show="thisPost.newComment" novalidate ng-submit="submitComment($event, thisPost)">
+
+                    <form name="newCommentForm"
+                        class="newComment"
+                        ng-show="thisPost.newComment"
+                        novalidate
+                        ng-submit="submitComment($event, thisPost, newCommentForm)">
                         <label for="commentAuthor"><b>Author</b></label>
-                        <input id="commentAuthor" type="text" name="commentAuthor" placeholder="username"
-                            required ng-class="{'error': newCommentForm{{$index}}.commentAuthor.$invalid && newCommentForm{{$index}}.commentAuthor.$touched}"
+                        <input id="commentAuthor"
+                            type="text"
+                            name="commentAuthor"
+                            placeholder="username"
+                            required
+                            ng-class="{'error': newCommentForm.commentAuthor.$invalid
+                                    && newCommentForm.commentAuthor.$touched}"
                             ng-model="thisPost.commentAuthor">
                         <label for="commentText"><b>Text</b></label>
-                        <input id="commentText" type="text" name="commentText" placeholder="comment text"
-                            required ng-class="{'error': newCommentForm{{$index}}.commentText.$invalid && newCommentForm{{$index}}.commentText.$touched}"
+                        <input id="commentText"
+                            type="text"
+                            name="commentText"
+                            placeholder="comment text"
+                            required
+                            ng-clas="{'error': newCommentForm.commentText.$invalid
+                                      && newCommentForm.commentText.$touched}"
                             ng-model="thisPost.commentText">
-                        <input type="submit" value="Add Comment" ng-disabled="newCommentForm{{$index}}.$invalid">
+                        <input type="submit"
+                            value="Add Comment"
+                            ng-disabled="newCommentForm.$invalid">
                     </form>
-
                 </div>
             </div>
         </section>

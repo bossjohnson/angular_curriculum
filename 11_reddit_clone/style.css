@@ -13,7 +13,26 @@ header {
   height: 8%;
   display: flex;
   justify-content: flex-start;
-  align-items: center; }
+  align-items: center;
+  white-space: nowrap; }
+  header button, header .search, header .sortContainer {
+    padding: 0.5%;
+    border-radius: 8px;
+    font-size: 1em;
+    text-align: center; }
+  header .sortContainer {
+    display: flex;
+    align-items: center;
+    font-family: sans-serif; }
+    header .sortContainer label {
+      margin-right: 0; }
+    header .sortContainer select {
+      background: none;
+      border: none;
+      font-size: 1em;
+      font-weight: bold;
+      margin-left: 0;
+      outline: none; }
   header * {
     margin: 0 2%; }
 
@@ -32,6 +51,13 @@ label {
   margin: 2%;
   padding: 1%;
   display: flex; }
+  .post .postImage {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .post .postImage img {
+      max-height: 100px;
+      max-width: 100px; }
   .post .postWrapper {
     margin-left: 1%;
     display: flex;
