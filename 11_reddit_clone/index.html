@@ -17,7 +17,6 @@
 
 <body ng-controller="RedditController">
     <!--
-A user can sort posts by votes, date, and title.
 Animate posts as they are added and removed from the search <results class=""></results>
 Style the app. It should look better than my implementation.
 -->
@@ -57,7 +56,9 @@ Style the app. It should look better than my implementation.
             novalidate
             ng-submit="submitPost($event)">
 
-            <label for="title">Title</label>
+            <label for="title"
+                ng-class="{'error': newPostForm.title.$invalid
+                  && newPostForm.title.$touched }">Title</label>
             <br>
             <input id="title"
                 type="text"
@@ -65,10 +66,13 @@ Style the app. It should look better than my implementation.
                 placeholder="Title"
                 ng-model="post.title"
                 required
-                ng-class="{'error': newPostForm.title.$invalid && newPostForm.title.$touched}">
+                ng-class="{'error': newPostForm.title.$invalid
+                  && newPostForm.title.$touched}">
             <br>
 
-            <label for="author">Author</label>
+            <label for="author"
+                ng-class="{'error': newPostForm.author.$invalid
+                  && newPostForm.author.$touched}">Author</label>
             <br>
             <input id="author"
                 type="text"
@@ -76,10 +80,13 @@ Style the app. It should look better than my implementation.
                 placeholder="Author"
                 ng-model="post.author"
                 required
-                ng-class="{'error': newPostForm.author.$invalid && newPostForm.author.$touched}">
+                ng-class="{'error': newPostForm.author.$invalid
+                  && newPostForm.author.$touched}">
             <br>
 
-            <label for="imageURL">Image URL</label>
+            <label for="imageURL"
+                ng-class="{'error': newPostForm.imageURL.$invalid
+                  && newPostForm.imageURL.$touched}">Image URL</label>
             <br>
             <input id="imageURL"
                 type="text"
@@ -87,10 +94,13 @@ Style the app. It should look better than my implementation.
                 placeholder="Image URL"
                 ng-model="post.imageURL"
                 required
-                ng-class="{'error': newPostForm.imageURL.$invalid && newPostForm.imageURL.$touched}">
+                ng-class="{'error': newPostForm.imageURL.$invalid
+                  && newPostForm.imageURL.$touched}">
             <br>
 
-            <label for="description">Description</label>
+            <label for="description"
+                ng-class="{'error': newPostForm.description.$invalid
+                  && newPostForm.description.$touched}">Description</label>
             <br>
             <input id="description"
                 type="text"
@@ -98,7 +108,8 @@ Style the app. It should look better than my implementation.
                 placeholder="Description"
                 ng-model="post.description"
                 required
-                ng-class="{'error': newPostForm.description.$invalid && newPostForm.description.$touched}">
+                ng-class="{'error': newPostForm.description.$invalid
+                  && newPostForm.description.$touched}">
             <br>
 
             <input type="submit"
@@ -182,7 +193,11 @@ Style the app. It should look better than my implementation.
                         ng-show="thisPost.newComment"
                         novalidate
                         ng-submit="submitComment($event, thisPost, newCommentForm)">
-                        <label for="commentAuthor"><b>Author</b></label>
+                        <label for="commentAuthor"
+                            ng-class="{'error': newCommentForm.commentAuthor.$invalid
+                                && newCommentForm.commentAuthor.$touched}">
+                            <b>Author</b>
+                        </label>
                         <input id="commentAuthor"
                             type="text"
                             name="commentAuthor"
@@ -191,13 +206,17 @@ Style the app. It should look better than my implementation.
                             ng-class="{'error': newCommentForm.commentAuthor.$invalid
                                     && newCommentForm.commentAuthor.$touched}"
                             ng-model="thisPost.commentAuthor">
-                        <label for="commentText"><b>Text</b></label>
+                        <label for="commentText"
+                            ng-class="{'error': newCommentForm.commentText.$invalid
+                                  && newCommentForm.commentText.$touched}">
+                            <b>Text</b>
+                        </label>
                         <input id="commentText"
                             type="text"
                             name="commentText"
                             placeholder="comment text"
                             required
-                            ng-clas="{'error': newCommentForm.commentText.$invalid
+                            ng-class="{'error': newCommentForm.commentText.$invalid
                                       && newCommentForm.commentText.$touched}"
                             ng-model="thisPost.commentText">
                         <input type="submit"

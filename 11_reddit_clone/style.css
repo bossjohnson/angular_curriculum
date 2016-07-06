@@ -9,7 +9,7 @@ body {
   height: 100vh; }
 
 header {
-  background-color: #FBFAFB;
+  background-color: whitesmoke;
   height: 8%;
   display: flex;
   justify-content: flex-start;
@@ -40,13 +40,34 @@ label {
   font-weight: bold; }
 
 .newPostForm {
-  margin: 3%;
-  padding: 1%; }
+  position: relative;
+  left: 3%;
+  margin: 2%;
+  padding: 1%;
+  font-size: 1.5em;
+  width: 90%;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
   .newPostForm input {
-    margin-bottom: 1%; }
+    position: relative;
+    left: 5%;
+    font-size: 0.7em;
+    margin-bottom: 0.5%;
+    border: 2px inset lightgray;
+    border-radius: 8px;
+    padding: 1%;
+    width: 90%; }
+    .newPostForm input[type="submit"] {
+      width: 20%;
+      border-style: outset;
+      left: 40%; }
 
 .post {
   border: 2px solid gray;
+  border-radius: 8px;
   background-color: lightgray;
   margin: 2%;
   padding: 1%;
@@ -66,6 +87,8 @@ label {
     flex-grow: 1; }
     .post .postWrapper .author {
       float: right; }
+  .post .postFooter {
+    margin-top: 1%; }
 
 .comments {
   margin: 0.5%; }
@@ -76,9 +99,16 @@ label {
 .newComment {
   margin: 1%; }
 
-.error {
+input.error {
   background-color: lightcoral;
-  border: 2px solid red; }
+  border: 2px solid red !important; }
+
+label.error {
+  color: red; }
+  label.error::after {
+    content: ' * This field is required *';
+    font-size: 0.7em;
+    color: lightcoral; }
 
 .positive {
   color: green; }
