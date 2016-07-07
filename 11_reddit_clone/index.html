@@ -13,6 +13,8 @@
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 
 <body ng-controller="RedditController">
@@ -127,8 +129,7 @@ Style the app. It should look better than my implementation.
                   description: 'Pickled tousled +1 marfa. Banjo chartreuse readymade, schlitz direct trade small batch try-hard narwhal tacos chia. Schlitz ennui chambray gastropub, mixtape thundercats mumblecore tousled meggings hoodie helvetica lumbersexual distillery next level. Echo park green juice gastropub hammock forage kombucha. Wayfarers selvage squid, art party leggings literally fanny pack PBR&B pop-up semiotics microdosing. Waistcoat venmo schlitz, occupy listicle blue bottle fap. Street art pitchfork lo-fi, fashion axe PBR&B williamsburg swag tilde thundercats pabst truffaut.',
                   date: Date(1467785218836),
                   comments: [{author: 'Michael Bluth', text: 'Still lobbing law bombs?'}, {author: 'Josh', text: 'I love this show.'}],
-                  upVotes: 5,
-                  show: true
+                  upVotes: 5
                 },{
                   title: 'I Love Rubber Duckies',
                   author: 'Ernie',
@@ -136,8 +137,7 @@ Style the app. It should look better than my implementation.
                   description: 'Poutine shabby chic knausgaard, photo booth gluten-free +1 try-hard yuccie schlitz. Messenger bag mixtape cronut, ramps literally try-hard intelligentsia hella. Freegan occupy heirloom swag, chambray kinfolk godard tote bag single-origin coffee etsy leggings fap hammock ramps. Austin cliche irony, paleo hoodie 3 wolf moon bicycle rights fashion axe whatever 8-bit. Marfa neutra narwhal cray, ethical four dollar toast trust fund four loko gastropub crucifix everyday carry. Trust fund intelligentsia you probably haven\'t heard of them brooklyn, twee pickled shabby chic fanny pack health goth authentic. Scenester craft beer slow-carb +1 XOXO, meditation deep v.',
                   date: Date(1467787428836 - 100000000),
                   comments: [{author: 'Bert', text: '...and I love you, Ernie.'}],
-                  upVotes: 2,
-                  show: true
+                  upVotes: 2
                 },{
                   title: 'Tacos Are Officially Delicious',
                   author: 'Texas Pete',
@@ -145,14 +145,11 @@ Style the app. It should look better than my implementation.
                   description: 'Wolf irony lumbersexual godard neutra cliche. Meggings kombucha migas VHS, tilde DIY yr street art kitsch try-hard cray authentic knausgaard freegan pork belly. Selfies affogato pour-over sartorial, church-key cred gentrify lomo distillery. Hella aesthetic next level tattooed yuccie sustainable. Chartreuse asymmetrical skateboard, try-hard sartorial mlkshk narwhal leggings salvia post-ironic waistcoat sustainable DIY direct trade authentic. Next level artisan plaid tousled, vinyl you probably haven\'t heard of them lumbersexual actually leggings chia 8-bit selvage polaroid whatever. Bushwick mumblecore chia migas forage, you probably haven\'t heard of them blog viral crucifix.',
                   date: Date(1467787428836 - 200090000),
                   comments: [],
-                  upVotes: -2,
-                  show: true
+                  upVotes: -2
                 }
                 ]">
             <div class="post unselectable"
-                ng-repeat="thisPost in posts | orderBy: sort.sortBy : true | filter : searchString track by $index"
-
-                ng-show="thisPost.show">
+                ng-repeat="thisPost in posts | orderBy: sort.sortBy : true | filter : searchString track by $index">
                 <div class="postImage">
                     <img ng-src="{{ thisPost.imageURL }}"
                         alt="image">

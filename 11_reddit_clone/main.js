@@ -36,8 +36,7 @@ app.controller('RedditController', function($scope) {
             newPost: false,
             upVotes: 0,
             showComments: false,
-            newComment: false,
-            show: true
+            newComment: false
         };
     };
 
