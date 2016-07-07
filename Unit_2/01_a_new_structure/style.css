@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images4.alphacoders.com/150/150198.jpg");
+  background-size: cover; }
+
+header {
+  background-color: whitesmoke;
+  height: 8%;
+  display: flex;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap; }
+  header button, header .search, header .sortContainer {
+    padding: 0.5%;
+    border-radius: 8px;
+    font-size: 1em;
+    text-align: center; }
+  header .sortContainer {
+    display: flex;
+    align-items: center;
+    font-family: sans-serif; }
+    header .sortContainer label {
+      margin-right: 0; }
+    header .sortContainer select {
+      background: none;
+      border: none;
+      font-size: 1em;
+      font-weight: bold;
+      margin-left: 0;
+      outline: none; }
+  header * {
+    margin: 0 2%; }
+
+label {
+  font-weight: bold; }
+
+.newPostForm {
+  border: 4px solid gray;
+  position: relative;
+  left: 3%;
+  margin: 2%;
+  padding: 1%;
+  font-size: 1.5em;
+  width: 90%;
+  background-color: rgba(211, 211, 211, 0.8);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.5); }
+  .newPostForm input {
+    position: relative;
+    left: 5%;
+    font-size: 0.7em;
+    margin-bottom: 0.5%;
+    border: 2px inset lightgray;
+    border-radius: 8px;
+    padding: 1%;
+    width: 90%; }
+    .newPostForm input[type="submit"] {
+      width: 20%;
+      border-style: outset;
+      left: 40%; }
+
+.post {
+  border: 4px solid gray;
+  border-radius: 8px;
+  background-color: rgba(211, 211, 211, 0.8);
+  margin: 2%;
+  padding: 1%;
+  display: flex;
+  box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.5); }
+  .post .postImage {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .post .postImage img {
+      max-height: 200px;
+      max-width: 200px; }
+  .post .postWrapper {
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1; }
+    .post .postWrapper .author {
+      float: right; }
+  .post .postFooter {
+    margin-top: 1%; }
+
+.comments {
+  margin: 0.5%; }
+  .comments.ng-hide-remove {
+    animation: lightSpeedIn 0.5s; }
+  .comments.ng-hide-add {
+    animation: lightSpeedOut 0.5s; }
+
+.postFooter span:hover {
+  cursor: pointer; }
+
+.newComment {
+  margin: 1%; }
+  .newComment input {
+    border-radius: 8px;
+    padding: 3px; }
+
+input.error {
+  background-color: lightcoral;
+  border: 2px solid red !important; }
+
+label.error {
+  color: red;
+  animation: bounce 1s; }
+  label.error::after {
+    content: ' * This field is required *';
+    font-size: 0.8em;
+    color: firebrick;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); }
+
+.positive {
+  color: green; }
+
+.negative {
+  color: red; }
+
+.zero {
+  color: black; }
+
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none; }
+
+.post.ng-enter {
+  animation: zoomIn 0.5s; }
+
+.post.ng-leave {
+  animation: zoomOut 0.5s; }
+
+.newPostForm.ng-hide-remove {
+  animation: flipInX 0.5s; }
+
+.newPostForm.ng-hide-add {
+  animation: flipOutY 0.5s; }
+
+.newComment.ng-hide-remove {
+  animation: bounceInDown 0.5s; }
+
+.newComment.ng-hide-add {
+  animation: bounceOutUp 0.5s; }
+
+/*# sourceMappingURL=style.css.map */
