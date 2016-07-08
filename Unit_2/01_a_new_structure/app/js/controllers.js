@@ -1,5 +1,3 @@
-var app = angular.module('RedditClone', ['ngAnimate']);
-
 app.controller('RedditController', function($scope) {
     $scope.posts = [];
     $scope.sort = {};
