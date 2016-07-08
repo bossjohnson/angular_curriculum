@@ -1,0 +1,37 @@
+<!-- Make a simple portfolio site using Angular. It should have 3 routes: "projects",
+"bio", and "resume". Add a Bootstrap navbar to the layout file with links to all
+3 routes. Figure out how to have the navbar reflect the current route that a user
+is on. -->
+<!DOCTYPE html>
+<html lang="en"
+    ng-app="PortfolioApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet"
+        href="css/style.css">
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/services.js"></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <h2><a href="/#/projects">Projects</a></h2>
+        <h2><a href="/#/bio">Biography</a></h2>
+        <h2><a href="/#/resume">Resume</a></h2>
+    </header>
+    <section ng-view></section>
+</body>
+
+</html>
