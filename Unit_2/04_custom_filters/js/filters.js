@@ -56,8 +56,14 @@ function punctuate(word) {
     }
 }
 
-app.filter('', function() {
-    return function() {
-
+app.filter('redact', function() {
+    return function(input, redactThis) {
+        var words = input.split(' ');
+        for (var i = 0; i < words.length; i++) {
+            if (words[i] === redactThis || words[i] === redactThis[0].toUpperCase() + redactThis.slice(1)) {
+                words[i] = 'REDACTED';
+            }
+        }
+        return words.join(' ');
     }
 });

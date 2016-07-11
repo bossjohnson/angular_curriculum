@@ -19,23 +19,28 @@
 <body>
     <h1>Kebab Case</h1>
     <p>
-      {{ "hello_hello_goodbye_goodbye" | kebab }}
-      <br>
-      {{ 12345 | kebab }}
+        {{ "hello_hello_goodbye_goodbye" | kebab }}
+        <br> {{ 12345 | kebab }}
     </p>
 
     <h1>Camel Case</h1>
     <p>
-      {{ "hello-world" | camel }}
-      <br>
-      {{ "hello_world" | camel }}
-      <br>
-      {{ "hi_there-planet_how-are-you_today?" | camel }}
+        {{ "hello-world" | camel }}
+        <br> {{ "hello_world" | camel }}
+        <br> {{ "hi_there-planet_how-are-you_today?" | camel }}
     </p>
 
     <h1>Pig Latin</h1>
     <p>
-      {{ "Pig latin is super fun.  I love bacon.  Oink!" | pigLatin }}
+        {{ "Pig latin is super fun. I love bacon. Oink!" | pigLatin }}
+    </p>
+
+    <h1>Redacted</h1>
+    <p>
+        {{ "My dog Rusty is adorable" | redact: "Rusty" }}
+    </p>
+    <p>
+        {{ "The quick brown fox jumps over the lazy dog." | redact : 'the' }}
     </p>
 </body>
 
