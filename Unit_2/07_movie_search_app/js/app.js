@@ -6,7 +6,7 @@ app.config(function($routeProvider) {
             templateUrl: 'partials/home.html',
             controller: 'HomeController'
         })
-        .when('/details', {
+        .when('/details/:id', {
             templateUrl: 'partials/details.html',
             controller: 'DetailsController'
         })

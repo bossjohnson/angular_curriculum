@@ -1,0 +1,23 @@
+<div class="movieDetailWrapper">
+    <h1>{{ movie.Title }}</h1>
+    <hr>
+    <div class="movieDetail">
+        <img ng-src="{{ movie.Poster }}"
+            ng-show="movie.Poster"
+            alt="poster"
+            class="moviePoster">
+        <div class="infoColumn">
+            <p class="starring">
+                <strong>Starring:</strong> {{ movie.Actors }}
+            </p>
+            <p class="plot">
+                {{ movie.Plot }}
+            </p>
+            <h2>Additional Details</h2>
+            <div ng-repeat="(key, value) in movie | details">
+                <h4>{{ key }}</h4>
+                <span class="info">{{ value }}</span>
+            </div>
+        </div>
+    </div>
+</div>

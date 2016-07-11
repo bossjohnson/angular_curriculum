@@ -1,7 +1,14 @@
-<h2>Search Results</h2>
+<div>
+    <h2 ng-show="$root.search.results.length">Search Results</h2>
+    <hr>
+</div>
 
-<ul>
-    <li ng-repeat="result in $root.search.results track by $index">
-      {{ result.Title }}
-    </li>
-</ul>
+<div class="results">
+    <a href="/#/details/{{ result.imdbID }}"
+        class="movieResult"
+        ng-repeat="result in $root.search.results | orderBy : 'Year' : true track by $index">
+    {{ result.Title }}
+    <br>
+    <span class="year">{{ result.Year }}</span>
+</a>
+</div>

@@ -26,4 +26,80 @@ header {
     header form * {
       margin: 1%; }
 
+.partialView {
+  position: relative;
+  width: 80%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .partialView h2 {
+    text-align: center; }
+
+.results {
+  font-size: 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%; }
+  .results .movieResult {
+    text-align: center;
+    border: 1px solid gray;
+    width: 40%;
+    margin: 1% 2.5%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    white-space: normal;
+    position: relative;
+    text-decoration: none;
+    color: #2D90D6; }
+    .results .movieResult:hover {
+      box-shadow: 0 4px 7px 3px rgba(0, 0, 0, 0.5);
+      bottom: 1px;
+      cursor: pointer; }
+    .results .movieResult span.year {
+      font-size: 0.8em;
+      font-style: italic; }
+
+.movieDetailWrapper {
+  width: 100%;
+  font-size: 1.2em;
+  border: 2px solid gray;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  padding: 1%; }
+  .movieDetailWrapper h1 {
+    text-align: center; }
+  .movieDetailWrapper .movieDetail {
+    display: flex;
+    align-items: flex-start; }
+    .movieDetailWrapper .movieDetail img {
+      margin: 1%;
+      width: 25%; }
+    .movieDetailWrapper .movieDetail .infoColumn {
+      position: relative;
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+      padding: 1%; }
+      .movieDetailWrapper .movieDetail .infoColumn .starring, .movieDetailWrapper .movieDetail .infoColumn .plot {
+        color: gray;
+        margin-bottom: 1%;
+        white-space: normal; }
+      .movieDetailWrapper .movieDetail .infoColumn .plot {
+        color: black; }
+      .movieDetailWrapper .movieDetail .infoColumn h2 {
+        text-align: left;
+        margin: 2% 0; }
+      .movieDetailWrapper .movieDetail .infoColumn div {
+        margin-bottom: 1.5%; }
+        .movieDetailWrapper .movieDetail .infoColumn div h4 {
+          margin-bottom: 0; }
+        .movieDetailWrapper .movieDetail .infoColumn div .info {
+          color: gray;
+          white-space: normal; }
+
 /*# sourceMappingURL=style.css.map */
