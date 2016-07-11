@@ -17,5 +17,13 @@ header {
     align-items: center; }
     header form input {
       width: 80%; }
+    header form button {
+      background-color: #2D90D6;
+      color: white;
+      padding: 4%;
+      border-radius: 8px;
+      border: none; }
+    header form * {
+      margin: 1%; }
 
 /*# sourceMappingURL=style.css.map */

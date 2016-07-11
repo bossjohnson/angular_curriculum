@@ -20,13 +20,19 @@
 </head>
 
 <body>
-    <header>
+    <header ng-controller="SearchController">
         <h1>Angular OMDb API Search</h1>
-        <form>
+        <form ng-submit="search.search(search.title)">
             <h4>Enter a movie by title.</h4>
             <input type="text"
                 name="title"
-                placeholder="movie title">
+                placeholder="movie title"
+                ng-model="search.title">
+            <button type="submit"
+                ng-show="search.title">
+                Search for {{ search.title }}!
+                <span class="fa fa-arrow-right"></span>
+            </button>
         </form>
     </header>
 
