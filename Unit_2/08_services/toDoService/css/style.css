@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  border-radius: 8px; }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 1%; }
+
+h1 {
+  text-align: center; }
+
+form.addTask {
+  border: 10px ridge lightgray;
+  box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.9);
+  position: relative;
+  left: 5%;
+  margin-top: 3%;
+  width: 90%;
+  font-size: 24pt;
+  padding: 1%; }
+  form.addTask input, form.addTask button {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    font-size: 1em;
+    text-align: center;
+    margin: 1%; }
+  form.addTask button {
+    width: 20%;
+    left: 40%;
+    background-color: #92C896;
+    color: white; }
+    form.addTask button:hover {
+      background-color: #55A959; }
+
+.taskList {
+  position: relative;
+  width: 25%;
+  left: 37.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  .taskList div.task {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+    .taskList div.task.ng-enter {
+      animation: zoomIn 0.5s; }
+    .taskList div.task.ng-leave {
+      animation: zoomOut 0.5s; }
+    .taskList div.task div.taskInfo {
+      border: 1px solid gray;
+      background-color: whitesmoke;
+      padding: 1%;
+      margin: 5px 0;
+      display: flex;
+      align-items: center; }
+      .taskList div.task div.taskInfo span.taskText {
+        flex-grow: 1;
+        white-space: normal; }
+      .taskList div.task div.taskInfo span.deleteTask, .taskList div.task div.taskInfo span.editTask {
+        border: 1px solid black;
+        padding: 2%;
+        margin: 0 0.5%;
+        height: 100%;
+        background-color: firebrick; }
+        .taskList div.task div.taskInfo span.deleteTask:hover, .taskList div.task div.taskInfo span.editTask:hover {
+          background-color: red; }
+      .taskList div.task div.taskInfo span.editTask {
+        background-color: gold; }
+        .taskList div.task div.taskInfo span.editTask:hover {
+          background-color: yellow; }
+  .taskList form.editTaskForm {
+    display: flex;
+    width: 100%; }
+    .taskList form.editTaskForm input, .taskList form.editTaskForm form.addTask button, form.addTask .taskList form.editTaskForm button {
+      flex-grow: 1;
+      padding: 1%; }
+    .taskList form.editTaskForm .confirm {
+      border: 1px solid black;
+      padding: 2%;
+      margin: 0 0.5%;
+      height: 100%;
+      background-color: darkgreen; }
+      .taskList form.editTaskForm .confirm:hover {
+        background-color: green; }
+
+hr {
+  position: relative;
+  left: 37.5%;
+  width: 25%; }
+
+.hidden {
+  opacity: 0; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"
+    ng-app="toDoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TODO App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <link rel="stylesheet"
+        href="css/style.css">
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/filters.js"></script>
+</head>
+
+<body ng-controller="ToDoController">
+    <!--  -->
+
+    <h1>Add a new TODO</h1>
+    <hr>
+
+    <form name="newToDoForm"
+        class="addTask"
+        ng-submit="addTask(view)"
+        novalidate>
+
+        <input type="text"
+            name="newToDo"
+            ng-model="view.newTask"
+            placeholder="add TODO here"
+            required>
+        <br>
+
+        <button type="submit"
+            ng-hide="newToDoForm.$invalid"
+            ng-disabled="newToDoForm.$invalid">Add</button>
+
+    </form>
+
+    <br>
+
+    <h1 ng-show="view.tasks.length">Your TODOs</h1>
+    <hr ng-show="view.tasks.length">
+
+    <section class="taskList">
+        <div ng-repeat="task in view.tasks track by $index"
+            class="task"
+            ng-mouseenter="showButtons($index, view)"
+            ng-mouseleave="hideButtons(view)">
+
+            <div class="taskInfo">
+                <span class="taskText">{{ task }}</span>
+                <span class="editTask fa fa-pencil"
+                    ng-click="editTask($index, view)"
+                    ng-class="{hidden: view.showButtonsFor !== $index}"></span>
+                <span class="deleteTask fa fa-times"
+                    ng-click="deleteTask($index, view)"
+                    ng-class="{hidden: view.showButtonsFor !== $index}"></span>
+            </div>
+
+            <form class="editTaskForm"
+                ng-show="view.edit === $index">
+                <input type="text"
+                    name="editTaskText"
+                    ng-model="task">
+                <span class="confirm fa fa-check"
+                    ng-click="confirmEdit($index, view, task)"></span>
+            </form>
+
+        </div>
+    </section>
+
+    <!--  -->
+</body>
+
+</html>
