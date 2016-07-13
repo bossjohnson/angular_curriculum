@@ -1,0 +1,46 @@
+h1, h2, h3 {
+    text-align: center;
+}
+form {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 2%;
+}
+input {
+    margin: 1%;
+}
+table {
+    width: 100%;
+}
+tr {
+    width: 100%;
+}
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+td {
+    text-align: center;
+}
+.searchBar {
+    position: relative;
+    left: 40%;
+    border: 2px inset gray;
+    width: 20%;
+    border-radius: 8px;
+    padding: 2%;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+h2.big {
+    font-size: 3em;
+}
+h3.big {
+    font-size: 1.5em;
+}
+img {
+  position: relative;
+  left: 37.5%;
+  width: 25%;
+}

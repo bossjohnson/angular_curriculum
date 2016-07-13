@@ -1,0 +1,59 @@
+<form name="newContactForm"
+    method="post"
+    ng-submit="addContact({
+                name:view.name,
+                email:view.email,
+                phone:view.phone
+              });
+              view.name = null;
+              view.email = null;
+              view.phone = null"
+    novalidate>
+    <label for="Name">Name</label>
+    <input type="text"
+        name="name"
+        placeholder="name"
+        ng-model="view.name"
+        required>
+    <br>
+
+    <label for="email">Email</label>
+    <input type="email"
+        name="email"
+        placeholder="email"
+        ng-model="view.email"
+        required>
+    <br>
+
+    <label for="phone">Phone</label>
+    <input type="tel"
+        name="phone"
+        placeholder="phone"
+        ng-model="view.phone"
+        required>
+    <br>
+
+    <button ng-disabled="newContactForm.$invalid">Add Contact</button>
+</form>
+
+<div class="searchBar">
+    Search <span class="fa fa-search"></span>
+    <input type="text"
+        name="search"
+        ng-model="view.search"
+        placeholder="name">
+</div>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    <tr ng-repeat="person in view.contactData | filter : {name: view.search}">
+        <td><a href="#/show/{{ $index }}">{{ person.name }}</a></td>
+        <td><a href="#/show/{{ $index }}">{{ person.email }}</a></td>
+        <td><a href="#/show/{{ $index }}">{{ person.phone }}</a></td>
+    </tr>
+
+</table>
