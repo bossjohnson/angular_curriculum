@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  border-radius: 8px; }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("http://feelgrafix.com/data_images/out/13/871597-pokemon-wallpaper.jpg");
+  background-size: cover; }
+
+.pokeBall {
+  position: relative;
+  width: 25%;
+  border-radius: 100%; }
+  .pokeBall:hover {
+    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.7);
+    top: -5px;
+    cursor: pointer; }
+  .pokeBall.ng-hide-add {
+    animation: bounceOutUp 1s; }
+
+.pokeBall.wobble {
+  animation: wobble 1s infinite;
+  box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.7);
+  top: -5px; }
+
+span.pokeType, span.pokeMove, span.pokeAbility {
+  position: relative;
+  left: 4%; }
+  span.pokeType:nth-of-type(1n + 2)::before, span.pokeMove:nth-of-type(1n + 2)::before, span.pokeAbility:nth-of-type(1n + 2)::before {
+    content: ", "; }
+
+h2.pokeName::first-letter {
+  text-transform: capitalize; }
+
+.pokeShow {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5%;
+  width: 80vw;
+  display: flex;
+  background-color: white; }
+  .pokeShow img {
+    height: 100%; }
+  .pokeShow h4 {
+    position: relative;
+    left: 2%; }
+  .pokeShow .column {
+    display: flex;
+    flex-direction: column; }
+    .pokeShow .column:first-child {
+      width: 20%; }
+    .pokeShow .column:last-child {
+      margin-left: 5%; }
+
+jn-pokemon-item:nth-of-type(even) {
+  animation: bounceInLeft 1s; }
+
+jn-pokemon-item:nth-of-type(odd) {
+  animation: bounceInRight 1s; }
+
+jn-pokemon-item.ng-enter-stagger {
+  animation-delay: 0.1s;
+  animation-duration: 0s; }
+
+.pokeClicked {
+  animation: flip 2s; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+    ng-app="PokeApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <link rel="stylesheet"
+        href="css/style.css">
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/filters.js"></script>
+</head>
+
+<body ng-controller="PokeController">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG"
+        alt="pokeball"
+        class="pokeBall"
+        ng-click="getPokemon()"
+        ng-class="{'wobble': view.ballClicked}"
+        ng-hide="pokemonToShow">
+
+    <jn-pokemon-item ng-repeat="pokemon in pokemonToShow track by $index"
+        name="pokemon.name"
+        types="pokemon.types"
+        abilities="pokemon.abilities"
+        sprite="pokemon.sprite"
+        moves="pokemon.moves"
+        poke-click="pokeClick">
+    </jn-pokemon-item>
+</body>
+
+</html>

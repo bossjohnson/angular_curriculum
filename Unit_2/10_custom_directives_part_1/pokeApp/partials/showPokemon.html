@@ -1,0 +1,39 @@
+<div class="pokeShow">
+
+    <div class="column">
+        <img class="pokeSprite"
+            ng-src="{{ sprite }}"
+            alt="{{ name }}"
+            ng-click="pokeClick($parent.$index)"
+            ng-class="{'pokeClicked': $parent.view.clickedPokemon.indexOf($parent.$index) !== -1}">
+    </div>
+
+    <div class="column">
+        <h2 class="pokeName">{{ name }}</h2>
+
+        <h4>Types:</h4>
+        <div>
+            <span class="pokeType"
+                ng-repeat="type in types track by $index">
+                {{ type.type.name }}
+            </span>
+        </div>
+
+        <h4>Moves:</h4>
+        <div>
+            <span class="pokeMove"
+                ng-repeat="move in moves track by $index">
+                {{ move }}
+            </span>
+        </div>
+
+        <h4>Abilities:</h4>
+        <div>
+            <span class="pokeAbility"
+                ng-repeat="ability in abilities track by $index">
+                {{ ability.ability.name }}
+            </span>
+        </div>
+    </div>
+
+</div>
