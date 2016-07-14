@@ -4,7 +4,6 @@ app.directive('jnDice', function() {
         restrict: 'E',
         scope: {},
         link: function(scope, element, attrs) {
-            // scope.value = roll();
             switch (roll()) {
                 case 1:
                     scope.face = 'dieFaces/onePip.png';
@@ -24,14 +23,11 @@ app.directive('jnDice', function() {
                 case 6:
                     scope.face = 'dieFaces/sixPips.png';
                     break;
-                default:
-                    console.log("FUCK");
             }
         }
     };
 
     function roll() {
-        console.log('rolling...');
         return Math.ceil(Math.random() * 6);
     }
 });
@@ -44,10 +40,13 @@ app.directive('jnRoll', function() {
 
     function roller($scope, $rootScope) {
         $scope.roll = function(numDice) {
-            $rootScope.view.dice = [];
+            $scope.clear();
             for (var i = 0; i < numDice; i++) {
                 $rootScope.view.dice.push(null);
             }
+        };
+        $scope.clear = function() {
+            $rootScope.view.dice = [];
         };
     }
     roller.$inject = ['$scope', '$rootScope'];

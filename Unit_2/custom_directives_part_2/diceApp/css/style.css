@@ -24,14 +24,18 @@ header {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   color: white; }
-  header button {
-    padding: 5px;
-    font-size: 1em;
-    margin-top: 1%; }
-    header button:hover {
+  header .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    header .buttonContainer button {
+      padding: 5px;
+      font-size: 1em;
+      margin: 4%; }
+      header .buttonContainer button:hover {
+        cursor: pointer; }
+    header .buttonContainer select:hover {
       cursor: pointer; }
-  header select:hover {
-    cursor: pointer; }
 
 main {
   position: absolute;
@@ -53,22 +57,20 @@ main {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  animation: rollIn 1s; }
-
-jn-dice {
+  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.6);
   margin: 2%;
-  animation: bounceInDown 1s; }
-
-.ng-leave {
-  opacity: 1;
-  animation: slideOutDown 1s;
-  transition: 1s; }
-
-.ng-leave-active {
-  opacity: 0; }
+  position: relative; }
+  .die.ng-enter {
+    animation: rollIn 1s; }
+  .die.ng-leave {
+    opacity: 1;
+    animation: slideOutDown 1s;
+    transition: 1s; }
+  .die.ng-leave-active {
+    opacity: 0; }
 
 .dieFace {
-  width: 110%;
-  height: 110%; }
+  width: 106%;
+  height: 106%; }
 
 /*# sourceMappingURL=style.css.map */

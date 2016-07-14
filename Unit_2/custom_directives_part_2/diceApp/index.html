@@ -7,7 +7,8 @@
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <link rel="stylesheet"
         href="css/style.css">
@@ -33,18 +34,24 @@
                 <option value="5">5</option>
             </select>
         </label>
-        <button ng-pluralize
-            count="view.numDice"
-            when="{'one': 'Roll 1 die!',
+
+        <div class="buttonContainer">
+            <button ng-pluralize
+                count="view.numDice"
+                when="{'one': 'Roll 1 die!',
                    'other': 'Roll {{ view.numDice }} dice!'}"
-            ng-click="roll(view.numDice)">
-        </button>
+                ng-click="roll(view.numDice)">
+            </button>
+            <button ng-click="clear()">
+                Clear!
+            </button>
+        </div>
     </header>
 
     <main>
         <jn-dice ng-repeat="die in $root.view.dice track by $index"
-          value="roll()"
-        ></jn-dice>
+            class="die">
+        </jn-dice>
     </main>
 
 </body>
