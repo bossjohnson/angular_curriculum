@@ -1,3 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  font-family: Helvetica, sans-serif; }
 
+body {
+  position: absolute;
+  left: 3vw;
+  width: 94vw;
+  height: 100vh;
+  font-size: 16pt; }
+
+header .guarantee {
+  background-color: #FF7141;
+  text-align: center;
+  color: white; }
+header h1 {
+  color: #FF7141;
+  font-style: italic;
+  font-size: 56pt; }
+header nav {
+  background-color: #F9FAFB;
+  border: 2px solid #F1F2F3;
+  border-radius: 6px;
+  padding: 2%; }
+  header nav a {
+    color: #88898A;
+    text-decoration: none;
+    margin: 2%; }
 
 /*# sourceMappingURL=style.css.map */
