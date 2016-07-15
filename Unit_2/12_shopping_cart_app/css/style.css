@@ -12,22 +12,93 @@ body {
   height: 100vh;
   font-size: 16pt; }
 
-header .guarantee {
-  background-color: #FF7141;
-  text-align: center;
-  color: white; }
-header h1 {
-  color: #FF7141;
-  font-style: italic;
-  font-size: 56pt; }
-header nav {
-  background-color: #F9FAFB;
-  border: 2px solid #F1F2F3;
-  border-radius: 6px;
-  padding: 2%; }
-  header nav a {
-    color: #88898A;
-    text-decoration: none;
-    margin: 2%; }
+header {
+  margin-bottom: 2%; }
+  header .guarantee {
+    background-color: #FF7141;
+    text-align: center;
+    color: white; }
+  header h1 {
+    color: #FF7141;
+    font-style: italic;
+    font-size: 56pt; }
+  header nav {
+    background-color: #F9FAFB;
+    border: 2px solid #F1F2F3;
+    border-radius: 6px;
+    padding: 2%; }
+    header nav a {
+      color: #88898A;
+      text-decoration: none;
+      margin: 2%; }
+
+main section.searchRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; }
+  main section.searchRow div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    main section.searchRow div input,
+    main section.searchRow div select {
+      font-size: 16pt;
+      margin: 0 2%; }
+  main section.searchRow .checkoutButton {
+    background-color: #E26D5F;
+    color: white;
+    border: 2px solid #DF6556;
+    border-radius: 6px;
+    padding: 1%;
+    font-size: 16pt; }
+    main section.searchRow .checkoutButton:hover {
+      cursor: pointer;
+      background-color: #E25D5F; }
+main table.teaTable {
+  border: 2px solid #E3E4E5;
+  margin-top: 1%;
+  max-width: 100%;
+  border-collapse: collapse; }
+  main table.teaTable th, main table.teaTable td {
+    border: 2px solid #E3E4E5;
+    text-align: left;
+    padding: 1%; }
+    main table.teaTable th .sortingDiv, main table.teaTable td .sortingDiv {
+      float: right;
+      display: flex;
+      align-items: center; }
+      main table.teaTable th .sortingDiv input, main table.teaTable td .sortingDiv input,
+      main table.teaTable th .sortingDiv select,
+      main table.teaTable td .sortingDiv select {
+        font-size: 16pt;
+        margin: 0 2%; }
+  main table.teaTable td {
+    position: relative;
+    white-space: normal; }
+    main table.teaTable td .quantitySelect {
+      position: absolute;
+      top: 2%;
+      right: 5%;
+      display: flex;
+      align-items: center; }
+      main table.teaTable td .quantitySelect label {
+        font-size: 1.5em; }
+      main table.teaTable td .quantitySelect .addToBag {
+        color: white;
+        background-color: #F5B965;
+        border: 2px solid #F5B965;
+        border-radius: 6px;
+        padding: 2%;
+        font-size: 16pt; }
+        main table.teaTable td .quantitySelect .addToBag:hover {
+          cursor: pointer;
+          background-color: #F5A965; }
+      main table.teaTable td .quantitySelect * {
+        margin: 1% 2%; }
+
+.teaCategory {
+  position: relative;
+  left: 5%; }
 
 /*# sourceMappingURL=style.css.map */

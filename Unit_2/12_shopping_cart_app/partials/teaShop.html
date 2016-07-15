@@ -1,0 +1,50 @@
+<section class="searchRow">
+
+    <div>
+        <label for="categorySearch">Search by category:</label>
+        <select id="categorySearch"
+            class="categorySearch"
+            ng-model="view.categorySearch">
+            <option value="">One</option>
+            <option value="">Two</option>
+            <option value="">Three</option>
+        </select>
+
+        <label for="nameSearch">Search by name: </label>
+        <input id="nameSearch"
+            class="nameSearch"
+            type="text"
+            ng-model="view.nameSearch">
+    </div>
+
+    <button class="checkoutButton">
+        <strong>Checkout</strong> | <span>Bag: Empty!</span>
+    </button>
+
+</section>
+
+<table class="teaTable">
+
+    <tr>
+        <th>Tea</th>
+        <th>
+            Information
+            <div class="sortingDiv">
+                <label for="priceSort">Sort By Price: </label>
+                <select id="priceSort"
+                    class="priceSort">
+                    <option value="low">Low to High</option>
+                    <option value="high">High to Low</option>
+                </select>
+            </div>
+        </th>
+    </tr>
+
+    <tr ng-repeat="tea in view.teas | filter : {name : view.nameSearch} track by $index"
+
+        ng-init="tea.quantity = '1'"
+        jn-tea-item
+        class="tea">
+    </tr>
+
+</table>

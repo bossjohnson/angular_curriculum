@@ -1,0 +1,53 @@
+<td>
+    <img ng-src="{{ tea.imageUrl }}"
+        alt="{{ tea.name }}">
+</td>
+
+<td>
+
+    <div class="quantitySelect">
+        <label>Quantity:</label>
+        <select ng-model="tea.quantity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button class="addToBag">Add To Bag</button>
+    </div>
+
+    <h2>{{ tea.name }}</h2>
+    <strong>Price: </strong>
+    <span>{{ tea.price | convertPrice }}</span>
+    <br>
+    <strong>Caffein Scale: </strong>
+    <span>{{ tea.caffeineScale }}</span>
+    <br>
+    <strong>Ingredients: </strong>
+    <span>{{ tea.ingredients }}</span>
+    <br>
+    <strong>Rating: </strong>
+    <span>{{ tea.rating }}</span>
+    <br>
+    <strong>In Stock?</strong>
+    <span>{{ tea.inStock | booleanForDummies }}</span>
+    <br>
+    <strong ng-pluralize
+        count="tea.categories.length"
+        when="{'one': 'Category:', 'other': 'Categories:'}">
+        </strong>
+    <ul>
+        <li ng-repeat="category in tea.categories track by $index"
+            class="teaCategory">
+            {{ category }}
+        </li>
+    </ul>
+    <br>
+
+</td>
