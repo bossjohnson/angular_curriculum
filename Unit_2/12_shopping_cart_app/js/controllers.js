@@ -1,21 +1,20 @@
 app.controller('teaShopController', teaShopController);
+teaShopController.$inject = ['$scope', '$rootScope', '$http'];
 
-function teaShopController($scope, $http) {
-    // initialize scope.view with an empty teas array
-    $scope.view = {
-        teas: [],
-        categories: [],
+function teaShopController($scope, $rootScope, $http) {
+    $rootScope.view = {
         bag: []
     };
+    $scope.view = {
+        teas: [],
+        categories: []
+    };
+    $scope.addToBag = addToBag;
 
-
-
-    // get tea data from teas.json and add it to $scope.view.teas
     $http.get('teas.json')
         .then(function(data) {
             var teas = data.data;
             teas.map(addTeasToScope);
-            // add tea categories to scope
             $scope.view.teas.forEach(tea => {
                 tea.categories.map(addCategoriesToScope);
             });
@@ -30,11 +29,11 @@ function teaShopController($scope, $http) {
             $scope.view.categories.push(category);
         }
     }
+
+    function addToBag(item) {
+        $rootScope.view.bag.push(item);
+    }
 }
-teaShopController.$inject = ['$scope', '$http'];
-
-
-
 
 app.controller('checkoutController', checkoutController);
 

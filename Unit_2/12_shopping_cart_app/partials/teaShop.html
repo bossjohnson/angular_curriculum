@@ -18,7 +18,15 @@
     </div>
 
     <button class="checkoutButton">
-        <strong>Checkout</strong> | <span>Bag: Empty!</span>
+        <strong>Checkout&nbsp;&nbsp;|</strong>&nbsp;&nbsp;
+        <span>Bag:
+          <span ng-pluralize
+            count="$root.view.bag.length"
+            when="{'0': 'Empty!',
+                   'one': '(1)',
+                   'other': '({})'}">
+          </span>
+        </span>
     </button>
 
 </section>
@@ -41,7 +49,6 @@
     </tr>
 
     <tr ng-repeat="tea in view.teas | filter : {name : view.nameSearch, categories: view.categorySearch}"
-
         ng-init="tea.quantity = '1'"
         jn-tea-item
         class="tea">

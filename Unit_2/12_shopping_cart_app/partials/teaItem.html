@@ -19,7 +19,10 @@
             <option value="9">9</option>
             <option value="10">10</option>
         </select>
-        <button class="addToBag">Add To Bag</button>
+        <button class="addToBag"
+            ng-click="addToBag(tea)">
+            Add To Bag
+        </button>
     </div>
 
     <h2>{{ tea.name }}</h2>

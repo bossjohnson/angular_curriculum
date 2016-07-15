@@ -51,10 +51,16 @@ main section.searchRow {
     border: 2px solid #DF6556;
     border-radius: 6px;
     padding: 1%;
-    font-size: 16pt; }
+    font-size: 16pt;
+    display: flex;
+    align-items: center; }
     main section.searchRow .checkoutButton:hover {
       cursor: pointer;
       background-color: #E25D5F; }
+    main section.searchRow .checkoutButton strong {
+      font-size: 21pt; }
+    main section.searchRow .checkoutButton span {
+      font-size: 14pt; }
 main table.teaTable {
   border: 2px solid #E3E4E5;
   margin-top: 1%;
