@@ -5,9 +5,9 @@
         <select id="categorySearch"
             class="categorySearch"
             ng-model="view.categorySearch">
-            <option value="">One</option>
-            <option value="">Two</option>
-            <option value="">Three</option>
+            <option value="">(none)</option>
+            <option value="{{ category }}"
+                ng-repeat="category in view.categories track by $index">{{ category }}</option>
         </select>
 
         <label for="nameSearch">Search by name: </label>
@@ -40,7 +40,7 @@
         </th>
     </tr>
 
-    <tr ng-repeat="tea in view.teas | filter : {name : view.nameSearch} track by $index"
+    <tr ng-repeat="tea in view.teas | filter : {name : view.nameSearch, categories: view.categorySearch}"
 
         ng-init="tea.quantity = '1'"
         jn-tea-item

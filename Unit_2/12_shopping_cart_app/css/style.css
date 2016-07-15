@@ -58,12 +58,16 @@ main section.searchRow {
 main table.teaTable {
   border: 2px solid #E3E4E5;
   margin-top: 1%;
-  max-width: 100%;
+  width: 100%;
   border-collapse: collapse; }
   main table.teaTable th, main table.teaTable td {
     border: 2px solid #E3E4E5;
     text-align: left;
     padding: 1%; }
+    main table.teaTable th:first-child, main table.teaTable td:first-child {
+      width: 20%; }
+    main table.teaTable th:last-child, main table.teaTable td:last-child {
+      width: 80%; }
     main table.teaTable th .sortingDiv, main table.teaTable td .sortingDiv {
       float: right;
       display: flex;
@@ -95,7 +99,7 @@ main table.teaTable {
           cursor: pointer;
           background-color: #F5A965; }
       main table.teaTable td .quantitySelect * {
-        margin: 1% 2%; }
+        margin: 0 2%; }
 
 .teaCategory {
   position: relative;
