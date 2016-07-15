@@ -40,15 +40,17 @@
             <div class="sortingDiv">
                 <label for="priceSort">Sort By Price: </label>
                 <select id="priceSort"
-                    class="priceSort">
-                    <option value="low">Low to High</option>
-                    <option value="high">High to Low</option>
+                    class="priceSort"
+                    ng-model="view.priceSort">
+                    <option value="">(chaos)</option>
+                    <option value="price">Low to High</option>
+                    <option value="-price">High to Low</option>
                 </select>
             </div>
         </th>
     </tr>
-
-    <tr ng-repeat="tea in view.teas | filter : {name : view.nameSearch, categories: view.categorySearch}"
+    
+    <tr ng-repeat="tea in view.teas| filter : {name : view.nameSearch, categories: view.categorySearch} | orderBy : view.priceSort"
         ng-init="tea.quantity = '1'"
         jn-tea-item
         class="tea">
