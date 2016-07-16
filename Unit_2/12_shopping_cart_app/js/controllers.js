@@ -33,6 +33,10 @@ function teaShopController($scope, $rootScope, $http) {
     function addToBag(item) {
         $rootScope.view.bag.push(item);
     }
+
+    function redirectToCheckout() {
+        
+    }
 }
 
 app.controller('checkoutController', checkoutController);

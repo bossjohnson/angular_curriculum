@@ -10,16 +10,20 @@ app.directive('jnTeaItem', function jnTeaItem($window, $timeout, $animate) {
                 var checkoutButton = element.parent().parent().parent().find('button')[0];
                 var rect = checkoutButton.getBoundingClientRect();
                 var checkoutX = rect.left + rect.width / 2;
-                var checkoutY = rect.top - rect.height / 2;
+                var checkoutY = rect.top;
 
                 element.find('img').parent().prepend(miniTea);
-                console.log(miniTea);
+
+                var miniTeaRect = miniTea[0].getBoundingClientRect();
+                var miniTeaX = miniTeaRect.left;
+                var miniTeaY = miniTeaRect.top;
+
                 $animate.animate(miniTea[0], {
-                    top: miniTea[0].offsetTop - $window.scrollY + 'px',
-                    left: miniTea[0].offsetLeft - $window.scrollX + 'px'
+                    top: 0,
+                    left: 0
                 }, {
-                    top: checkoutY + 'px',
-                    left: checkoutX + 'px'
+                    top: checkoutY - miniTeaY + 'px',
+                    left: checkoutX - miniTeaX + 'px'
                 });
                 $timeout(function() {
                     $animate.animate(miniTea[0], {

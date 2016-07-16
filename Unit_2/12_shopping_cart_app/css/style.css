@@ -110,6 +110,8 @@ main table.teaTable {
           background-color: #F5A965; }
       main table.teaTable tr td .quantitySelect * {
         margin: 0 2%; }
+main section.showTotalRow h2 {
+  display: inline-block; }
 
 .teaCategory {
   position: relative;
@@ -118,7 +120,7 @@ main table.teaTable {
 .miniTea {
   height: 100px;
   width: 100px;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   opacity: 0.8;
   border-radius: 50%;
