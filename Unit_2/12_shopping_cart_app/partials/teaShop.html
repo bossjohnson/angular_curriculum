@@ -16,8 +16,9 @@
             type="text"
             ng-model="view.nameSearch">
     </div>
-
-    <button class="checkoutButton">
+    
+    <button class="checkoutButton"
+        jn-checkout-button>
         <strong>Checkout&nbsp;&nbsp;|</strong>&nbsp;&nbsp;
         <span>Bag:
           <span ng-pluralize
@@ -38,9 +39,8 @@
         <th>
             Information
             <div class="sortingDiv">
-                <label for="priceSort">Sort By Price: </label>
-                <select id="priceSort"
-                    class="priceSort"
+                <label>Sort By Price: </label>
+                <select class="priceSort"
                     ng-model="view.priceSort">
                     <option value="">(chaos)</option>
                     <option value="price">Low to High</option>
@@ -49,8 +49,10 @@
             </div>
         </th>
     </tr>
-    
-    <tr ng-repeat="tea in view.teas| filter : {name : view.nameSearch, categories: view.categorySearch} | orderBy : view.priceSort"
+
+    <tr ng-repeat="tea in view.teas
+                    | filter : {name : view.nameSearch, categories: view.categorySearch}
+                    | orderBy : view.priceSort"
         ng-init="tea.quantity = '1'"
         jn-tea-item
         class="tea">

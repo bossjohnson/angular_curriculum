@@ -66,49 +66,64 @@ main table.teaTable {
   margin-top: 1%;
   width: 100%;
   border-collapse: collapse; }
-  main table.teaTable th, main table.teaTable td {
+  main table.teaTable tr.tea.ng-enter {
+    animation: fadeIn 0.3s; }
+  main table.teaTable tr.tea.ng-leave {
+    animation: fadeOut 0.3s; }
+  main table.teaTable tr th, main table.teaTable tr td {
     border: 2px solid #E3E4E5;
     text-align: left;
     padding: 1%; }
-    main table.teaTable th:first-child, main table.teaTable td:first-child {
+    main table.teaTable tr th:first-child, main table.teaTable tr td:first-child {
       width: 20%; }
-    main table.teaTable th:last-child, main table.teaTable td:last-child {
+    main table.teaTable tr th:last-child, main table.teaTable tr td:last-child {
       width: 80%; }
-    main table.teaTable th .sortingDiv, main table.teaTable td .sortingDiv {
+    main table.teaTable tr th .sortingDiv, main table.teaTable tr td .sortingDiv {
       float: right;
       display: flex;
       align-items: center; }
-      main table.teaTable th .sortingDiv input, main table.teaTable td .sortingDiv input,
-      main table.teaTable th .sortingDiv select,
-      main table.teaTable td .sortingDiv select {
+      main table.teaTable tr th .sortingDiv input, main table.teaTable tr td .sortingDiv input,
+      main table.teaTable tr th .sortingDiv select,
+      main table.teaTable tr td .sortingDiv select {
         font-size: 16pt;
         margin: 0 2%; }
-  main table.teaTable td {
+  main table.teaTable tr td {
     position: relative;
     white-space: normal; }
-    main table.teaTable td .quantitySelect {
+    main table.teaTable tr td .quantitySelect {
       position: absolute;
       top: 2%;
       right: 5%;
       display: flex;
       align-items: center; }
-      main table.teaTable td .quantitySelect label {
+      main table.teaTable tr td .quantitySelect label {
         font-size: 1.5em; }
-      main table.teaTable td .quantitySelect .addToBag {
+      main table.teaTable tr td .quantitySelect .addToBag {
         color: white;
         background-color: #F5B965;
         border: 2px solid #F5B965;
         border-radius: 6px;
         padding: 2%;
         font-size: 16pt; }
-        main table.teaTable td .quantitySelect .addToBag:hover {
+        main table.teaTable tr td .quantitySelect .addToBag:hover {
           cursor: pointer;
           background-color: #F5A965; }
-      main table.teaTable td .quantitySelect * {
+      main table.teaTable tr td .quantitySelect * {
         margin: 0 2%; }
 
 .teaCategory {
   position: relative;
   left: 5%; }
+
+.miniTea {
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  z-index: 1;
+  opacity: 0.8;
+  border-radius: 50%;
+  transition: 1s ease-in-out; }
+  .miniTea.ng-leave {
+    animation: fadeOut 1s; }
 
 /*# sourceMappingURL=style.css.map */
