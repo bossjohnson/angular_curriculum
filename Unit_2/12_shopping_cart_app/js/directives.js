@@ -5,6 +5,7 @@ app.directive('jnTeaItem', function jnTeaItem($window, $timeout, $animate) {
         controller: teaShopController,
         link: function(scope, element) {
             var miniTea = angular.element('<img src="' + scope.tea.imageUrl + '" alt="tea" class="miniTea">');
+            
             scope.flyingTea = function() {
                 var checkoutButton = element.parent().parent().parent().find('button')[0];
                 var rect = checkoutButton.getBoundingClientRect();
