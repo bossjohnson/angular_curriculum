@@ -1,10 +1,14 @@
 app.controller('teaShopController', teaShopController);
-teaShopController.$inject = ['$scope', '$rootScope', '$http', '$location', '$timeout'];
+teaShopController.$inject = ['$scope', '$rootScope', '$http', '$location', '$timeout', 'jnPriceService'];
 
-function teaShopController($scope, $rootScope, $http, $location, $timeout) {
-    $rootScope.view = {
-        bag: []
-    };
+function teaShopController($scope, $rootScope, $http, $location, $timeout, jnPriceService) {
+
+    if (!$rootScope.view) {
+        $rootScope.view = {
+            bag: []
+        };
+    }
+
     $scope.view = {
         teas: [],
         categories: []
@@ -38,20 +42,18 @@ function teaShopController($scope, $rootScope, $http, $location, $timeout) {
     }
 
     function redirectToCheckout() {
-        var totalPrice = 0;
-        var bag = $rootScope.view.bag;
-        console.log('bag:', bag);
-        for (var i = 0; i < bag.length; i++) {
-            totalPrice += bag[i].price * Number(bag[i].quantity);
-        }
-        $rootScope.view.totalPrice = totalPrice;
+        jnPriceService.updateTotal();
         $location.url('/checkout');
     }
 }
 
 app.controller('checkoutController', checkoutController);
 
-function checkoutController($scope, $rootScope) {
-
+function checkoutController($scope, $rootScope, jnPriceService) {
+    $scope.removeItem = function(index) {
+        // console.log(index);
+        $rootScope.view.bag.splice(index, 1);
+        jnPriceService.updateTotal();
+    };
 }
-checkoutController.$inject = ['$scope', '$rootScope'];
+checkoutController.$inject = ['$scope', '$rootScope', 'jnPriceService'];
