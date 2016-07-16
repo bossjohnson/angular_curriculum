@@ -1,7 +1,7 @@
 app.controller('teaShopController', teaShopController);
-teaShopController.$inject = ['$scope', '$rootScope', '$http', '$location'];
+teaShopController.$inject = ['$scope', '$rootScope', '$http', '$location', '$timeout'];
 
-function teaShopController($scope, $rootScope, $http, $location) {
+function teaShopController($scope, $rootScope, $http, $location, $timeout) {
     $rootScope.view = {
         bag: []
     };
@@ -32,7 +32,9 @@ function teaShopController($scope, $rootScope, $http, $location) {
     }
 
     function addToBag(item) {
-        $rootScope.view.bag.push(item);
+        $timeout(() => {
+            $rootScope.view.bag.push(item);
+        }, 1000);
     }
 
     function redirectToCheckout() {

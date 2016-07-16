@@ -25,6 +25,7 @@ app.directive('jnTeaItem', function jnTeaItem($window, $timeout, $animate) {
                     top: checkoutY - miniTeaY + 'px',
                     left: checkoutX - miniTeaX + 'px'
                 });
+
                 $timeout(function() {
                     $animate.animate(miniTea[0], {
                         opacity: '.8',
@@ -33,9 +34,10 @@ app.directive('jnTeaItem', function jnTeaItem($window, $timeout, $animate) {
                         opacity: '0'
                     });
                 }, 1000);
+
                 $timeout(function() {
                     miniTea.remove();
-                }, 2000)
+                }, 1300);
             };
         }
     };
