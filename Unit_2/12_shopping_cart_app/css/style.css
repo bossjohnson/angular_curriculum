@@ -110,8 +110,10 @@ main table.teaTable {
           background-color: #F5A965; }
       main table.teaTable tr td .quantitySelect * {
         margin: 0 2%; }
-main section.showTotalRow h2 {
+main section.checkoutTotalRow h2 {
   display: inline-block; }
+  main section.checkoutTotalRow h2.total {
+    float: right; }
 
 .teaCategory {
   position: relative;

@@ -41,19 +41,3 @@ app.directive('jnTeaItem', function jnTeaItem($window, $timeout, $animate) {
     };
     jnTeaItem.$inject = ['$window', '$timeout', '$animate'];
 });
-
-app.directive('jnCheckoutButton', jnCheckoutButton);
-
-function jnCheckoutButton() {
-    return {
-        templateUrl: '',
-        restrict: 'A',
-        link: function(scope, element) {
-            var buttonTop = element[0].getBoundingClientRect().top;
-            var buttonRight = element[0].getBoundingClientRect().right;
-            scope.view.checkoutButtonTop = buttonTop;
-            scope.view.checkoutButtonRight = buttonRight;
-
-        }
-    };
-}

@@ -1,7 +1,7 @@
 app.controller('teaShopController', teaShopController);
-teaShopController.$inject = ['$scope', '$rootScope', '$http'];
+teaShopController.$inject = ['$scope', '$rootScope', '$http', '$location'];
 
-function teaShopController($scope, $rootScope, $http) {
+function teaShopController($scope, $rootScope, $http, $location) {
     $rootScope.view = {
         bag: []
     };
@@ -10,6 +10,7 @@ function teaShopController($scope, $rootScope, $http) {
         categories: []
     };
     $scope.addToBag = addToBag;
+    $scope.redirectToCheckout = redirectToCheckout;
 
     $http.get('teas.json')
         .then(function(data) {
@@ -35,13 +36,20 @@ function teaShopController($scope, $rootScope, $http) {
     }
 
     function redirectToCheckout() {
-        
+        var totalPrice = 0;
+        var bag = $rootScope.view.bag;
+        console.log('bag:', bag);
+        for (var i = 0; i < bag.length; i++) {
+            totalPrice += bag[i].price * Number(bag[i].quantity);
+        }
+        $rootScope.view.totalPrice = totalPrice;
+        $location.url('/checkout');
     }
 }
 
 app.controller('checkoutController', checkoutController);
 
-function checkoutController() {
+function checkoutController($scope, $rootScope) {
 
 }
-checkoutController.$inject = [''];
+checkoutController.$inject = ['$scope', '$rootScope'];
