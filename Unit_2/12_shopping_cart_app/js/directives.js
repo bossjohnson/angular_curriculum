@@ -19,8 +19,8 @@ app.directive('jnTeaItem', function jnTeaItem($window, $timeout, $animate) {
                 var miniTeaY = miniTeaRect.top;
 
                 $animate.animate(miniTea[0], {
-                    top: 0,
-                    left: 0
+                    top: '25%',
+                    left: '25%'
                 }, {
                     top: checkoutY - miniTeaY + 'px',
                     left: checkoutX - miniTeaX + 'px'
