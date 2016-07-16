@@ -4,9 +4,9 @@ app.directive('jnTeaItem', function jnTeaItem($window, $timeout, $animate) {
         restrict: 'A',
         controller: teaShopController,
         link: function(scope, element) {
-            var miniTea = angular.element('<img src="' + scope.tea.imageUrl + '" alt="tea" class="miniTea">');
-            
+
             scope.flyingTea = function() {
+                var miniTea = angular.element('<img src="' + scope.tea.imageUrl + '" alt="tea" class="miniTea">');
                 var checkoutButton = element.parent().parent().parent().find('button')[0];
                 var rect = checkoutButton.getBoundingClientRect();
                 var checkoutX = rect.left + rect.width / 2;
@@ -23,7 +23,8 @@ app.directive('jnTeaItem', function jnTeaItem($window, $timeout, $animate) {
                 });
                 $timeout(function() {
                     $animate.animate(miniTea[0], {
-                        opacity: '.8'
+                        opacity: '.8',
+                        transition: '.3s'
                     }, {
                         opacity: '0'
                     });
