@@ -2,3 +2,39 @@
     <h2>My Shopping Bag</h2>
     <h2 class="total">Order total: {{ $root.view.totalPrice | convertPrice }}</h2>
 </section>
+
+<table class="checkoutTable">
+
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th></th>
+    </tr>
+
+    <tr ng-repeat="item in $root.view.bag track by $index">
+        <td>
+            <h2>{{ item.name }}</h2>
+            <img ng-src="{{ item.imageUrl }}"
+                alt="tea">
+            <p>
+                <strong>Caffeine Scale: </strong>{{ item.caffeineScale }}
+            </p>
+            <p>
+                <strong>Ingredients: </strong>{{ item.ingredients }}
+            </p>
+            <p>
+                <strong>Rating: </strong>{{ item.rating }}
+            </p>
+        </td>
+        <td><span>{{ item.quantity }}</span></td>
+        <td><strong>{{ item.price * item.quantity | convertPrice }}</strong></td>
+        <td>
+            <div class="buttons">
+                <button>Edit</button>
+                <button>Remove</button>
+            </div>
+        </td>
+    </tr>
+
+</table>

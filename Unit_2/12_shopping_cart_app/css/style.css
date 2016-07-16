@@ -48,7 +48,7 @@ main section.searchRow {
   main section.searchRow .checkoutButton {
     background-color: #E26D5F;
     color: white;
-    border: 2px solid #DF6556;
+    border: 2px solid #DF5556;
     border-radius: 6px;
     padding: 1%;
     font-size: 16pt;
@@ -61,65 +61,97 @@ main section.searchRow {
       font-size: 21pt; }
     main section.searchRow .checkoutButton span {
       font-size: 14pt; }
-main table.teaTable {
+main table.teaTable, main table.checkoutTable {
   border: 2px solid #E3E4E5;
   margin-top: 1%;
   width: 100%;
   border-collapse: collapse; }
-  main table.teaTable tr.tea.ng-enter {
+  main table.teaTable tr.tea.ng-enter, main table.checkoutTable tr.tea.ng-enter {
     animation: fadeIn 0.3s; }
-  main table.teaTable tr.tea.ng-leave {
+  main table.teaTable tr.tea.ng-leave, main table.checkoutTable tr.tea.ng-leave {
     animation: fadeOut 0.3s; }
-  main table.teaTable tr th, main table.teaTable tr td {
+  main table.teaTable tr th, main table.checkoutTable tr th, main table.teaTable tr td, main table.checkoutTable tr td {
     border: 2px solid #E3E4E5;
     text-align: left;
     padding: 1%; }
-    main table.teaTable tr th:first-child, main table.teaTable tr td:first-child {
+    main table.teaTable tr th:first-child, main table.checkoutTable tr th:first-child, main table.teaTable tr td:first-child, main table.checkoutTable tr td:first-child {
       width: 20%; }
-    main table.teaTable tr th:last-child, main table.teaTable tr td:last-child {
+    main table.teaTable tr th:last-child, main table.checkoutTable tr th:last-child, main table.teaTable tr td:last-child, main table.checkoutTable tr td:last-child {
       width: 80%; }
-    main table.teaTable tr th .sortingDiv, main table.teaTable tr td .sortingDiv {
+    main table.teaTable tr th .sortingDiv, main table.checkoutTable tr th .sortingDiv, main table.teaTable tr td .sortingDiv, main table.checkoutTable tr td .sortingDiv {
       float: right;
       display: flex;
       align-items: center; }
-      main table.teaTable tr th .sortingDiv input, main table.teaTable tr td .sortingDiv input,
+      main table.teaTable tr th .sortingDiv input, main table.checkoutTable tr th .sortingDiv input, main table.teaTable tr td .sortingDiv input, main table.checkoutTable tr td .sortingDiv input,
       main table.teaTable tr th .sortingDiv select,
-      main table.teaTable tr td .sortingDiv select {
+      main table.checkoutTable tr th .sortingDiv select,
+      main table.teaTable tr td .sortingDiv select,
+      main table.checkoutTable tr td .sortingDiv select {
         font-size: 16pt;
         margin: 0 2%; }
-  main table.teaTable tr td {
+  main table.teaTable tr td, main table.checkoutTable tr td {
     position: relative;
     white-space: normal; }
-    main table.teaTable tr td .quantitySelect {
+    main table.teaTable tr td .quantitySelect, main table.checkoutTable tr td .quantitySelect {
       position: absolute;
       top: 2%;
       right: 5%;
       display: flex;
       align-items: center; }
-      main table.teaTable tr td .quantitySelect label {
+      main table.teaTable tr td .quantitySelect label, main table.checkoutTable tr td .quantitySelect label {
         font-size: 1.5em; }
-      main table.teaTable tr td .quantitySelect .addToBag {
+      main table.teaTable tr td .quantitySelect .addToBag, main table.checkoutTable tr td .quantitySelect .addToBag {
         color: white;
         background-color: #F5B965;
-        border: 2px solid #F5B965;
+        border: 2px solid #F5A965;
         border-radius: 6px;
         padding: 2%;
         font-size: 16pt; }
-        main table.teaTable tr td .quantitySelect .addToBag:hover {
+        main table.teaTable tr td .quantitySelect .addToBag:hover, main table.checkoutTable tr td .quantitySelect .addToBag:hover {
           cursor: pointer;
           background-color: #F5A965; }
-      main table.teaTable tr td .quantitySelect * {
+      main table.teaTable tr td .quantitySelect *, main table.checkoutTable tr td .quantitySelect * {
         margin: 0 2%; }
 main section.checkoutTotalRow h2 {
   display: inline-block; }
   main section.checkoutTotalRow h2.total {
     float: right; }
-
-.teaCategory {
+main table.checkoutTable tr th:first-child, main table.checkoutTable tr td:first-child {
+  width: 70%; }
+main table.checkoutTable tr td:nth-child(n+2) {
+  padding: 1%; }
+  main table.checkoutTable tr td:nth-child(n+2) div,
+  main table.checkoutTable tr td:nth-child(n+2) span,
+  main table.checkoutTable tr td:nth-child(n+2) strong {
+    position: absolute;
+    top: 2%; }
+  main table.checkoutTable tr td:nth-child(n+2) .buttons {
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around; }
+    main table.checkoutTable tr td:nth-child(n+2) .buttons button {
+      border-radius: 6px;
+      padding: 2%;
+      min-width: 40%;
+      background-color: #FFB943;
+      border: 2px solid #FFA943;
+      font-size: 16pt;
+      color: white; }
+      main table.checkoutTable tr td:nth-child(n+2) .buttons button:hover {
+        background-color: #FFA943;
+        cursor: pointer; }
+      main table.checkoutTable tr td:nth-child(n+2) .buttons button:last-child {
+        background-color: #FB5D48;
+        border: 2px solid #FB4D48; }
+        main table.checkoutTable tr td:nth-child(n+2) .buttons button:last-child:hover {
+          background-color: #FB4D48; }
+main table.checkoutTable tr td p {
+  margin: 1%; }
+main .teaCategory {
   position: relative;
   left: 5%; }
-
-.miniTea {
+main .miniTea {
   height: 100px;
   width: 100px;
   position: absolute;
@@ -127,7 +159,7 @@ main section.checkoutTotalRow h2 {
   opacity: 0.8;
   border-radius: 50%;
   transition: 1s ease-in-out; }
-  .miniTea.ng-leave {
+  main .miniTea.ng-leave {
     animation: fadeOut 1s; }
 
 /*# sourceMappingURL=style.css.map */
