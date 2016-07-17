@@ -116,38 +116,47 @@ main section.checkoutTotalRow h2 {
   display: inline-block; }
   main section.checkoutTotalRow h2.total {
     float: right; }
-main table.checkoutTable tr th:first-child, main table.checkoutTable tr td:first-child {
+main table.checkoutTable tr.checkoutItem.ng-leave {
+  position: absolute;
+  transition: 1s; }
+main table.checkoutTable tr.checkoutItem.ng-leave.ng-leave-active {
+  animation: slideOutLeft 1s;
+  opacity: 0; }
+main table.checkoutTable tr.checkoutItem th:first-child, main table.checkoutTable tr.checkoutItem td:first-child {
   width: 70%; }
-main table.checkoutTable tr td:nth-child(n+2) {
-  padding: 1%; }
-  main table.checkoutTable tr td:nth-child(n+2) div,
-  main table.checkoutTable tr td:nth-child(n+2) span,
-  main table.checkoutTable tr td:nth-child(n+2) strong {
-    position: absolute;
-    top: 2%; }
-  main table.checkoutTable tr td:nth-child(n+2) .buttons {
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around; }
-    main table.checkoutTable tr td:nth-child(n+2) .buttons button {
-      border-radius: 6px;
-      padding: 2%;
-      min-width: 40%;
-      background-color: #FFB943;
-      border: 2px solid #FFA943;
-      font-size: 16pt;
-      color: white; }
-      main table.checkoutTable tr td:nth-child(n+2) .buttons button:hover {
-        background-color: #FFA943;
-        cursor: pointer; }
-      main table.checkoutTable tr td:nth-child(n+2) .buttons button:last-child {
-        background-color: #FB5D48;
-        border: 2px solid #FB4D48; }
-        main table.checkoutTable tr td:nth-child(n+2) .buttons button:last-child:hover {
-          background-color: #FB4D48; }
-main table.checkoutTable tr td p {
-  margin: 1%; }
+main table.checkoutTable tr.checkoutItem td {
+  max-width: 70%;
+  white-space: normal; }
+  main table.checkoutTable tr.checkoutItem td:nth-child(n+2) {
+    padding: 1%; }
+    main table.checkoutTable tr.checkoutItem td:nth-child(n+2) div,
+    main table.checkoutTable tr.checkoutItem td:nth-child(n+2) span,
+    main table.checkoutTable tr.checkoutItem td:nth-child(n+2) strong {
+      position: absolute;
+      top: 2%; }
+    main table.checkoutTable tr.checkoutItem td:nth-child(n+2) .buttons {
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around; }
+      main table.checkoutTable tr.checkoutItem td:nth-child(n+2) .buttons button {
+        border-radius: 6px;
+        padding: 2%;
+        min-width: 40%;
+        background-color: #FFB943;
+        border: 2px solid #FFA943;
+        font-size: 16pt;
+        color: white; }
+        main table.checkoutTable tr.checkoutItem td:nth-child(n+2) .buttons button:hover {
+          background-color: #FFA943;
+          cursor: pointer; }
+        main table.checkoutTable tr.checkoutItem td:nth-child(n+2) .buttons button:last-child {
+          background-color: #FB5D48;
+          border: 2px solid #FB4D48; }
+          main table.checkoutTable tr.checkoutItem td:nth-child(n+2) .buttons button:last-child:hover {
+            background-color: #FB4D48; }
+  main table.checkoutTable tr.checkoutItem td span {
+    white-space: normal; }
 main .teaCategory {
   position: relative;
   left: 5%; }
