@@ -59,7 +59,7 @@ main section.searchRow {
       background-color: #E25D5F; }
     main section.searchRow .checkoutButton strong {
       font-size: 21pt; }
-    main section.searchRow .checkoutButton span {
+    main section.searchRow .checkoutButton span, main section.searchRow .checkoutButton table.checkoutTable tr.checkoutItem td:nth-child(n+2) input, main table.checkoutTable tr.checkoutItem td:nth-child(n+2) section.searchRow .checkoutButton input {
       font-size: 14pt; }
 main table.teaTable, main table.checkoutTable {
   border: 2px solid #E3E4E5;
@@ -75,9 +75,9 @@ main table.teaTable, main table.checkoutTable {
     text-align: left;
     padding: 1%; }
     main table.teaTable tr th:first-child, main table.checkoutTable tr th:first-child, main table.teaTable tr td:first-child, main table.checkoutTable tr td:first-child {
-      width: 20%; }
+      width: 20vw; }
     main table.teaTable tr th:last-child, main table.checkoutTable tr th:last-child, main table.teaTable tr td:last-child, main table.checkoutTable tr td:last-child {
-      width: 80%; }
+      width: 80vw; }
     main table.teaTable tr th .sortingDiv, main table.checkoutTable tr th .sortingDiv, main table.teaTable tr td .sortingDiv, main table.checkoutTable tr td .sortingDiv {
       float: right;
       display: flex;
@@ -97,9 +97,12 @@ main table.teaTable, main table.checkoutTable {
       top: 2%;
       right: 5%;
       display: flex;
-      align-items: center; }
+      align-items: center;
+      width: 27%; }
       main table.teaTable tr td .quantitySelect label, main table.checkoutTable tr td .quantitySelect label {
         font-size: 1.5em; }
+      main table.teaTable tr td .quantitySelect select, main table.checkoutTable tr td .quantitySelect select {
+        font-size: 16pt; }
       main table.teaTable tr td .quantitySelect .addToBag, main table.checkoutTable tr td .quantitySelect .addToBag {
         color: white;
         background-color: #F5B965;
@@ -131,9 +134,13 @@ main table.checkoutTable tr.checkoutItem td {
     padding: 1%; }
     main table.checkoutTable tr.checkoutItem td:nth-child(n+2) div,
     main table.checkoutTable tr.checkoutItem td:nth-child(n+2) span,
+    main table.checkoutTable tr.checkoutItem td:nth-child(n+2) input,
     main table.checkoutTable tr.checkoutItem td:nth-child(n+2) strong {
       position: absolute;
       top: 2%; }
+    main table.checkoutTable tr.checkoutItem td:nth-child(n+2) input {
+      font-size: 16pt;
+      width: 86%; }
     main table.checkoutTable tr.checkoutItem td:nth-child(n+2) .buttons {
       left: 0;
       width: 100%;
@@ -155,7 +162,7 @@ main table.checkoutTable tr.checkoutItem td {
           border: 2px solid #FB4D48; }
           main table.checkoutTable tr.checkoutItem td:nth-child(n+2) .buttons button:last-child:hover {
             background-color: #FB4D48; }
-  main table.checkoutTable tr.checkoutItem td span {
+  main table.checkoutTable tr.checkoutItem td span, main table.checkoutTable tr.checkoutItem td:nth-child(n+2) input {
     white-space: normal; }
 main .teaCategory {
   position: relative;

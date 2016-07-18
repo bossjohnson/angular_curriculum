@@ -51,9 +51,15 @@ app.controller('checkoutController', checkoutController);
 
 function checkoutController($scope, $rootScope, jnPriceService) {
     $scope.removeItem = function(index) {
-        // console.log(index);
         $rootScope.view.bag.splice(index, 1);
         jnPriceService.updateTotal();
     };
+    $scope.editItem = function(index) {
+        $scope.view.showEdit = index;
+    };
+    $scope.saveItem = function(index) {
+        $scope.view.showEdit = -1;
+    };
+    $scope.updateTotal = jnPriceService.updateTotal;
 }
 checkoutController.$inject = ['$scope', '$rootScope', 'jnPriceService'];

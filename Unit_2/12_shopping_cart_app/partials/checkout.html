@@ -29,11 +29,23 @@
             <br>
             <strong>Rating: </strong>{{ item.rating }}
         </td>
-        <td><span>{{ item.quantity }}</span></td>
+        <td>
+            <span ng-show="view.showEdit !== $index">{{ item.quantity }}</span>
+            <input type="text"
+                value="{{ item.quantity }}"
+                ng-model="item.quantity"
+                ng-show="view.showEdit === $index"
+                ng-change="updateTotal()">
+        </td>
+
         <td><strong>{{ item.price * item.quantity | convertPrice }}</strong></td>
         <td>
             <div class="buttons">
-                <button>Edit</button>
+                <button ng-click="editItem($index)"
+                    ng-show="view.showEdit !== $index">Edit</button>
+                <button ng-click="saveItem($index)"
+                    ng-show="view.showEdit === $index">Save</button>
+
                 <button ng-click="removeItem($index)">Remove</button>
             </div>
         </td>
