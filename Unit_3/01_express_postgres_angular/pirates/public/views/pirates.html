@@ -1,1 +1,14 @@
-<h1>Pirates!</h1>
+<div ng-repeat="pirate in view.pirates track by $index"
+    class="row">
+    <div class="col-md-6 column">
+        <h2>{{ pirate.name }}</h2>
+        <img ng-src="{{ pirate.image_url }}"
+            alt="argh">
+        <p>
+            <br>
+            <strong>Accessory: </strong><span>{{ pirate.accessory }}</span>
+            <br>
+            <strong>Poison: </strong><span>{{ pirate.poison }}</span>
+        </p>
+    </div>
+</div>

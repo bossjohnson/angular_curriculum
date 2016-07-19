@@ -1,0 +1,45 @@
+<div class="page-header">
+    <h1>Add a Pirate</h1>
+</div>
+
+<form novalidate
+    action="/api/pirates"
+    method="post">
+    <div class="row">
+        <label for="name"
+            class="col-md-2"><strong>Name: </strong></label>
+        <input type="text"
+            name="name"
+            placeholder="a pirate's name"
+            ng-model="newPirate.name">
+    </div>
+    <div class="row">
+        <label for="poison"
+            class="col-md-2"><strong>Poison: </strong></label>
+        <input type="text"
+            name="poison"
+            placeholder="pick his poison"
+            ng-model="newPirate.poison">
+    </div>
+    <div class="row">
+        <label for="accessory"
+            class="col-md-2"><strong>Accessory: </strong></label>
+        <input type="text"
+            name="accessory"
+            placeholder="add an accessory"
+            ng-model="newPirate.accessory">
+    </div>
+    <div class="row">
+        <label for="imageUrl"
+            class="col-md-2"><strong>Image URL: </strong></label>
+        <input type="text"
+            name="imageUrl"
+            placeholder="URL to pirate image"
+            ng-model="newPirate.imageUrl">
+    </div>
+    <div class="row">
+        <input type="submit"
+            value="Add Pirate!"
+            class="col-md-2">
+    </div>
+</form>

@@ -1,8 +1,12 @@
 app.controller('PiratesController', PiratesController);
 
-function PiratesController($scope) {
-    $scope.view = {
-        taco: 6 + 9
-    };
+function PiratesController($scope, PiratesService) {
+    $scope.view = {};
+    $scope.newPirate = {};
+
+    PiratesService.all()
+        .then(function(data) {
+            $scope.view.pirates = data.data;
+        });
 }
-PiratesController.$inject = ['$scope'];
+PiratesController.$inject = ['$scope', 'PiratesService'];
