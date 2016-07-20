@@ -1,6 +1,12 @@
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-image: url(../images/treasuremap.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
 }
 .row {
     display: flex;
@@ -31,4 +37,18 @@ form * {
 .centerHor {
     display: flex;
     justify-content: center;
+}
+.addPirate {
+    border: 2px solid black;
+    border-radius: 6px;
+    padding: 1%;
+    background-color: forestgreen;
+    color: white;
+    font-size: 1.5em;
+    position: relative;
+    width: 15%;
+    left: 42.5%;
+}
+.addPirate:hover {
+    background-color: darkgreen;
 }

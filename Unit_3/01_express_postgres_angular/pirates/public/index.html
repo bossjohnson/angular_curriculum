@@ -21,6 +21,7 @@
     <script src="javascripts/main.js"></script>
     <script src="javascripts/controllers/controllers.js"></script>
     <script src="javascripts/services/services.js"></script>
+    <script src="javascripts/directives/directives.js"></script>
 </head>
 
 <body ng-controller="PiratesController">
@@ -35,6 +36,9 @@
             </div>
         </div>
     </nav>
+    <button class="fa fa-plus fa-3x addPirate"
+        ng-click="view.addPirate = !view.addPirate">&nbsp;Add a pirate</button>
+    <add-pirate ng-show="view.addPirate"></add-pirate>
     <section ng-view></section>
 </body>
 

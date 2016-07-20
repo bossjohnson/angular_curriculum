@@ -1,8 +1,11 @@
 app.controller('PiratesController', PiratesController);
 
 function PiratesController($scope, PiratesService) {
-    $scope.view = {};
+    $scope.view = {
+      addPirate: false
+    };
     $scope.newPirate = {};
+
 
     PiratesService.all()
         .then(function(data) {
