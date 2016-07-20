@@ -1,7 +1,7 @@
 <div ng-repeat="pirate in view.pirates track by $index"
     class="row pirate">
     <div class="col-md-6 column">
-        <h2>{{ pirate.name }}</h2>
+        <h2 class="pirateName">{{ pirate.name }}</h2>
         <img ng-src="{{ pirate.image_url }}"
             alt="argh">
         <p>

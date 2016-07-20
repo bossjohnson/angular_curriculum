@@ -33,8 +33,11 @@
             <span class="fa fa-anchor anchor"></span>
         </a>
     </header>
-    <button class="fa fa-plus fa-3x addPirate"
-        ng-click="view.addPirate = !view.addPirate">&nbsp;Add a pirate</button>
+    <button class="addPirate"
+        ng-click="view.addPirate = !view.addPirate">
+        <span class="fa fa-plus"></span>
+        &nbsp;Add a pirate
+    </button>
     <add-pirate ng-show="view.addPirate"></add-pirate>
     <section ng-view></section>
 </body>

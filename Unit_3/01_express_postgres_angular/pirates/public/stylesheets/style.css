@@ -8,6 +8,18 @@ body {
     height: 100vh;
     width: 100vw;
 }
+@font-face {
+    font-family: 'Piratey';
+    src: url(../fonts/FreebooterUpdated.ttf);
+}
+@font-face {
+    font-family: 'Bones';
+    src: url(../fonts/Cartoon%20Bones.ttf);
+}
+.pirate, .pirateName {
+    font-family: 'Piratey';
+    font-size: 2.5em;
+}
 .row {
     display: flex;
     justify-content: center;
@@ -29,9 +41,6 @@ h1 {
 form * {
     margin: .5%;
 }
-.pirate-header {
-
-}
 .centerHor {
     display: flex;
     justify-content: center;
@@ -41,8 +50,10 @@ form * {
     border-radius: 6px;
     padding: 1%;
     background-color: forestgreen;
+    opacity: .8;
     color: white;
-    font-size: 1.5em;
+    font-family: 'Piratey';
+    font-size: 2em;
     position: relative;
     width: 15%;
     left: 42.5%;
@@ -53,21 +64,24 @@ form * {
 }
 .pirate, .addPirateForm {
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 6px;
+    border-radius: 10px;
     margin: 1%;
 }
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 1%;
+    border-radius: 10px;
 }
 .anchor {
-  font-size: 2em;
-  color: slategray;
+    font-size: 2em;
+    color: slategray;
 }
 .piratesHeader {
-  font-family: fantasy;
-  font-size: 4em;
+    font-family: 'Bones';
+    font-size: 6em;
+    color: whitesmoke;
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
 }

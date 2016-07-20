@@ -2,7 +2,7 @@ app.controller('PiratesController', PiratesController);
 
 function PiratesController($scope, PiratesService) {
     $scope.view = {
-      addPirate: false
+        addPirate: false
     };
     $scope.newPirate = {};
 
