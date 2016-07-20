@@ -30,9 +30,7 @@ form * {
     margin: .5%;
 }
 .pirate-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
 }
 .centerHor {
     display: flex;
@@ -48,7 +46,28 @@ form * {
     position: relative;
     width: 15%;
     left: 42.5%;
+    top: 10px;
 }
 .addPirate:hover {
     background-color: darkgreen;
+}
+.pirate, .addPirateForm {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    margin: 1%;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1%;
+}
+.anchor {
+  font-size: 2em;
+  color: slategray;
+}
+.piratesHeader {
+  font-family: fantasy;
+  font-size: 4em;
 }

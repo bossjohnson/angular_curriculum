@@ -25,17 +25,14 @@
 </head>
 
 <body ng-controller="PiratesController">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid centerHor">
-            <div class="navbar-header pirate-header">
-                <h1 class="text-center">Pirates!</h1>
-                <a class="navbar-brand text-center"
-                    href="#/">
-                    <span class="fa fa-anchor"></span>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <header>
+
+        <h1 class="piratesHeader">Pirates!</h1>
+        <a class="navbar-brand text-center"
+            href="#/">
+            <span class="fa fa-anchor anchor"></span>
+        </a>
+    </header>
     <button class="fa fa-plus fa-3x addPirate"
         ng-click="view.addPirate = !view.addPirate">&nbsp;Add a pirate</button>
     <add-pirate ng-show="view.addPirate"></add-pirate>

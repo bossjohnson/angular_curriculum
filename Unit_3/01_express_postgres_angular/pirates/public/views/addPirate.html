@@ -1,41 +1,45 @@
-<div class="page-header">
-    <h1>New Pirate</h1>
-</div>
-
 <form novalidate
     action="/api/pirates"
-    method="post">
+    method="post"
+    class="addPirateForm">
+    <div class="page-header">
+        <h1>New Pirate</h1>
+    </div>
     <div class="row">
         <label for="name"
-            class="col-md-2"><strong>Name: </strong></label>
-        <input type="text"
-            name="name"
-            placeholder="a pirate's name"
-            ng-model="newPirate.name">
+            class="col-md-2"><strong>Name: </strong>
+            <input type="text"
+                name="name"
+                placeholder="a pirate's name"
+                ng-model="newPirate.name">
+        </label>
     </div>
     <div class="row">
         <label for="poison"
-            class="col-md-2"><strong>Poison: </strong></label>
-        <input type="text"
-            name="poison"
-            placeholder="pick his poison"
-            ng-model="newPirate.poison">
+            class="col-md-2"><strong>Poison: </strong>
+            <input type="text"
+                name="poison"
+                placeholder="pick his poison"
+                ng-model="newPirate.poison">
+        </label>
     </div>
     <div class="row">
         <label for="accessory"
-            class="col-md-2"><strong>Accessory: </strong></label>
-        <input type="text"
-            name="accessory"
-            placeholder="add an accessory"
-            ng-model="newPirate.accessory">
+            class="col-md-2"><strong>Accessory: </strong>
+            <input type="text"
+                name="accessory"
+                placeholder="add an accessory"
+                ng-model="newPirate.accessory">
+        </label>
     </div>
     <div class="row">
         <label for="imageUrl"
-            class="col-md-2"><strong>Image URL: </strong></label>
-        <input type="text"
-            name="imageUrl"
-            placeholder="URL to pirate image"
-            ng-model="newPirate.imageUrl">
+            class="col-md-2"><strong>Image URL: </strong>
+            <input type="text"
+                name="imageUrl"
+                placeholder="URL to pirate image"
+                ng-model="newPirate.imageUrl">
+        </label>
     </div>
     <div class="row">
         <input type="submit"
