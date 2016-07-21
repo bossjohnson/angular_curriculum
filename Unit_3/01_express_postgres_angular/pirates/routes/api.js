@@ -24,7 +24,7 @@ router.post('/pirates', function(req, res, next) {
             image_url: imageUrl
         })
         .then((data) => {
-            res.redirect('/')
+            res.redirect('/');
         })
 });
 
@@ -33,7 +33,7 @@ router.delete('/pirates/:id', function(req, res, next) {
         .del()
         .where('id', req.params.id)
         .then((data) => {
-            res.end();
+            res.send(null);
         });
 });
 

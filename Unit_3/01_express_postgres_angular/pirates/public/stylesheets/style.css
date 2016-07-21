@@ -75,19 +75,30 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(http://images.akamai.steamusercontent.com/ugc/884104004671878431/EEB7602123D5843BEE15E46C0B273DB5AA7A6BF7/);
+    background-size: cover;
+    background-position: center;
     padding: 1%;
     border-radius: 10px;
 }
 .anchor {
-    font-size: 2em;
+    position: relative;
+    top: -200%;
+    font-size: 4em;
     color: slategray;
+    text-shadow: 0 5px 3px rgba(0, 0, 0, 0.7);
+}
+.anchor:hover {
+    animation: swing 1s;
 }
 .piratesHeader {
     font-family: 'Bones';
     font-size: 6em;
-    color: whitesmoke;
-    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-shadow: 0 2px 1px black;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
 }
 .remove {
     font-family: 'Piratey';
@@ -103,17 +114,17 @@ header {
     background-color: darkred;
 }
 .pirate.ng-leave {
-    animation: slideOutLeft 1s;
+    animation: zoomOut 1s;
     transition: 1s;
 }
 .pirate.ng-leave-active {
     opacity: 0;
 }
 .pirate.ng-enter {
-  animation: slideInRight 1s;
-  transition: 1s;
-  opacity: 0;
+    opacity: 0;
+    transition: 1s;
 }
 .pirate.ng-enter-active {
-  opacity: 1;
+    animation: zoomIn 1s;
+    opacity: 1;
 }
