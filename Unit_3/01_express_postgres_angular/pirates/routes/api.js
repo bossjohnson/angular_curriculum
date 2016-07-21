@@ -26,8 +26,15 @@ router.post('/pirates', function(req, res, next) {
         .then((data) => {
             res.redirect('/')
         })
+});
 
-
+router.delete('/pirates/:id', function(req, res, next) {
+    knex('pirates')
+        .del()
+        .where('id', req.params.id)
+        .then((data) => {
+            res.end();
+        });
 });
 
 module.exports = router;

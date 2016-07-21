@@ -1,11 +1,10 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('pirates', (table) => {
-        table.integer('id');
+        table.increments('id');
         table.string('name');
         table.string('accessory');
         table.string('poison');
         table.string('image_url');
-
     })
 };
 
